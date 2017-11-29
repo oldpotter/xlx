@@ -1,0 +1,12 @@
+<import src='../../views/article-item/article-item.wxml' />
+
+<view class='page'>
+  <view class='page__bd'>
+    <!-- 文章列表 -->
+    <view class='list'>
+      <block wx:for='{{list}}'>
+        <template is='article-item' data='{{noAttachment,index,...item}}' />
+      </block>
+    </view>
+  </view>
+</view>

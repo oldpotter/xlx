@@ -1,0 +1,34 @@
+@import '../../plugins/wxParse/wxParse.wxss';
+
+.article-item {
+  margin: 20rpx 20rpx;
+  border: 1rpx solid lightgray;
+  padding: 20rpx 40rpx;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.article-title {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.article-title-attach {
+  color: lightgray;
+  font-size: 12px;
+	border-bottom: 1rpx solid lightgray;
+}
+
+.article-content {
+	margin-top: 5rpx;
+  color: lightgray;
+  font-size: 14px;
+}
+
+.article-content-attach {
+  color: lightgray;
+  font-size: 12px;
+}

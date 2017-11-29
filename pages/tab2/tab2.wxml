@@ -1,0 +1,22 @@
+<!--pages/tab2/tab2.wxml-->
+<import src='../../views/list/index.wxml'/>
+<view class='page'>
+  <view class='page__bd'>
+    <view class="weui-search-bar" bindtap='onClickSearchBar'>
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索关键字，进入分类答疑</view>
+        </label>
+      </view>
+    </view>
+    <template is='article-list' data='{{noMoreData,isLoading,list}}'/> 
+  </view>
+</view>

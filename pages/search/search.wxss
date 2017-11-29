@@ -1,0 +1,14 @@
+/* pages/question-answer/question-answer.wxss */
+@import '../../views/article-item/article-item.wxss';
+
+.btn-all {
+  position: relative;
+  margin: 20rpx 40rpx;
+  float: right;
+}
+
+.list {
+  margin-top: 100rpx;
+}
+
+

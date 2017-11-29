@@ -1,0 +1,8 @@
+<template name='comment-like-area'>
+  <view class='comment-like-container'>
+    <!-- 评论   -->
+    <image class='comment' src='{{commentImageUrl}}' bindtap='onClickComment'></image>
+    <!-- 点赞 -->
+    <image class='like {{liked?"liked":""}}' src='{{likeImageUrl}}' bindtap='onClickLike'></image>
+  </view>
+</template>

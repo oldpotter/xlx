@@ -1,0 +1,2 @@
+/* pages/list/list.wxss */
+@import '../../views/list/index.wxss';

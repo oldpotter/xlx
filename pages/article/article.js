@@ -1,0 +1,115 @@
+const config = require('../../config.js')
+const wxParse = require('../../plugins/wxParse/wxParse.js')
+const app = getApp()
+const util = require('../../utils/util.js')
+
+Page({
+
+	data: {
+		showAttachment: undefined,
+		article: undefined,
+		// titleHtml: undefined,
+		asker: undefined,
+		ctimeFormat: undefined,
+		replaytimeFormat: undefined,
+		isCollected: undefined,
+		articleId: undefined,
+	},
+
+	onLoad(options) {
+		const _this = this
+		//是否要显示附加信息
+		this.setData({
+			showAttachment: options.showAttachment
+		})
+		//加载文章
+		if (options.articleId) {
+			// console.log(`url:${options.url}`)
+			this.setData({
+				articleId: options.articleId
+			})
+			wx.showLoading({
+				title: '请稍后...',
+			})
+			wx.request({
+				url: `${config.service.getArticleUrl}?id=${_this.data.articleId}&format=JSON`,
+				success: function (res) {
+					console.log(`contentHtml:`, res.data.contentHtml)
+					let article = res.data
+					article.ctimeFormat = util.getTimeFromNow(article.ctime)
+					article.replaytimeFormat = util.getFormatTime(article.replaytime)
+					app.article = article
+					_this.parseArticle()
+					wx.hideLoading()
+				},
+				fail: function (res) {
+					console.error('请求失败。。。')
+				},
+			})
+		} else {
+			this.parseArticle()
+		}
+		//收藏按钮
+		const isCollected = app.collections.some(id => id == this.data.articleId)
+		this.setData({
+			isCollected: isCollected
+		})
+	},
+
+	onUnload() {
+		wx.setStorage({
+			key: 'collections',
+			data: app.collections,
+		})
+	},
+
+	parseArticle() {
+		this.setData({
+			articleId: app.article.id,
+			article: app.article,
+			// titleHtml: app.article.titleHtml,
+			asker: app.article.asker,
+			ctimeFormat: app.article.ctimeFormat,
+			replaytimeFormat: app.article.replaytimeFormat,
+		})
+
+		let titleHtml = app.article.titleHtml
+		wxParse.wxParse('title', 'html', titleHtml, this, 20)
+
+		let contentHtml = this.data.article.contentHtml
+			.replace(/\w*=?:?""/g, '')
+			.replace(/<style>[\s\S]*<\/style>/, '')
+			.replace(/<p class="dayiyinpin">/g, '')
+			.replace(/<table>/g, '')
+			.replace(/<\/table>/g, '')
+			.replace(/<tbody>/g, '')
+			.replace(/<\/tbody>/g, '')
+			.replace(/<tr>/g, '')
+			.replace(/<\/tr>/g, '')
+			.replace(/<td>/g, '')
+			.replace(/<\/td>/g, '')
+			.replace(/<div class="qr-div">/g, '')
+			.replace(/<\/div>/g, '')
+			.replace(/table border="0" width="250" cellspacing="0" cellpadding="0">/g, '')
+
+		// console.log(`contentHtml:${contentHtml}`)
+		wxParse.wxParse('article', 'html', contentHtml, this, 20)
+
+
+	},
+
+	//点击收藏按钮
+	onClickCollection() {
+		//动画
+		this.setData({
+			isCollected: !this.data.isCollected,
+		})
+		if (this.data.isCollected) {
+			app.collections.push(this.data.articleId)
+		} else {
+			app.collections = app.collections.filter(id => id != this.data.articleId)
+		}
+	},
+
+
+})

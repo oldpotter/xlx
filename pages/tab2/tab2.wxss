@@ -1,0 +1,3 @@
+/* pages/tab2/tab2.wxss */
+@import '../../views/list/index.wxss';
+

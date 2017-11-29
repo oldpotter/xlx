@@ -1,0 +1,2 @@
+/* pages/tab4/collectionlist.wxss */
+@import '../../views/article-item/article-item.wxss';

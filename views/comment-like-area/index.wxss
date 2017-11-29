@@ -1,0 +1,34 @@
+.comment-like-container {
+  /* background: lightblue; */
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.comment {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+@keyframes like-animation {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 slategray;
+  }
+
+  to {
+    transform: scale(2);
+    box-shadow: 0 0 75px 50px transparent;
+  }
+}
+
+.like {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.liked {
+  animation: like-animation 2s;
+}

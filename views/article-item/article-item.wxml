@@ -1,0 +1,16 @@
+<import src='../../plugins/wxParse/wxParse.wxml' />
+<template name='article-item'>
+  <view class='article-item' bindtap='onClickArticleItem' data-article-id='{{id}}' data-index='{{index}}'>
+    <view class='article-title'>{{title}}</view>
+    <view wx:if='{{!noAttachment}}' class='article-title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>
+    <view class='article-content'>
+      <block wx:if='{{parseContent}}'>
+        <template is='wxParse' data='{{wxParseData:item}}' />
+      </block>
+			<block wx:else>
+				{{content}}
+			</block>
+    </view>
+    <view wx:if='{{!noAttachment}}' class='article-content-attach'>回答者：{{answer}} · {{replaytimeFormat}}</view>
+  </view>
+</template>

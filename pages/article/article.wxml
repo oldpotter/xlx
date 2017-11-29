@@ -1,0 +1,13 @@
+<!--pages/article/article.wxml-->
+<import src='../../plugins/wxParse/wxParse.wxml' />
+
+<view class='page'>
+  <view class='page__bd' style='margin:50rpx 30rpx'>
+    <!-- <view class='title'>{{titleHtml}}</view> -->
+		<template is='wxParse' data='{{wxParseData:title.nodes}}' />
+    <view wx:if='{{showAttachment}}' class='title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>
+    <view wx:if='{{showAttachment}}' class='content-attach'>回答时间:{{replaytimeFormat}}</view>
+    <template is='wxParse' data='{{wxParseData:article.nodes}}' />
+  </view>
+  <image class='collection {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
+</view>
