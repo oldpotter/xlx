@@ -1,0 +1,3 @@
+<!--pages/web-view/web-view.wxml-->
+this is web-view
+<web-view src='https://www.xuelingxiu.com/'></web-view>

@@ -111,5 +111,20 @@ Page({
 		}
 	},
 
+	//点击链接
+	wxParseTagATap(event){
+		const url = event.currentTarget.dataset.src
+		let ifInnerUrl = /http:\/\/www.xuelingxiu.com\/yuanwushi\/[\w]+.html/.test(url)
+		console.log(`url:${url}
+		result:${ifInnerUrl}`)
+		const articleId = url.replace(/http:\/\/www.xuelingxiu.com\/yuanwushi\//, '')
+			.replace(/.html/, '')
+		wx.navigateTo({
+			url: `./article?articleId=${articleId}&showAttachment=true`,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
+	},
 
 })
