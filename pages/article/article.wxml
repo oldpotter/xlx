@@ -2,7 +2,7 @@
 <import src='../../plugins/wxParse/wxParse.wxml' />
 
 <view class='page'>
-  <view class='page__bd' style='margin:50rpx 30rpx'>
+  <view class='page__bd level-{{level}}' style='margin:50rpx 30rpx'>
     <!-- <view class='title'>{{titleHtml}}</view> -->
 		<template is='wxParse' data='{{wxParseData:title.nodes}}' />
     <view wx:if='{{showAttachment}}' class='title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>

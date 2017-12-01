@@ -1,0 +1,14 @@
+<!--pages/tab4/options.wxml-->
+<view class='page'>
+  <view class='page__bd page__bd_spacing'>
+    <view class='level-{{level}}'>{{content}}</view>
+    <view class='levels'>
+      <text>小</text>
+      <text>标准</text>
+      <text>中</text>
+      <text>大</text>
+      <text>极大</text>
+    </view>
+    <slider step='25' value='{{level}}' bindchange='onChange'></slider>
+  </view>
+</view>

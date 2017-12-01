@@ -1,6 +1,7 @@
 App({
 	onLaunch() {
 		this.collections = wx.getStorageSync('collections') || []
+		this.level = wx.getStorageSync('level') || 25
 		// console.log('collections:',this.collections)
 		Promise.prototype.finally = function (callback) {
 			let P = this.constructor;
@@ -13,5 +14,5 @@ App({
 
 	article: null,//显示的文章
 	collections: null,//收藏的文章ids
-
+	level: null,//字体大小标示值
 })

@@ -11,3 +11,23 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.level-0{
+	font-size: 14px;
+}
+
+.level-25{
+	font-size: 18px;
+}
+
+.level-50{
+	font-size: 20px;
+}
+
+.level-75{
+	font-size: 22px;
+}
+
+.level-100{
+	font-size: 24px;
+}

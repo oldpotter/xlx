@@ -1,0 +1,9 @@
+/* pages/tab4/options.wxss */
+
+
+.levels{
+	 display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center; 
+}

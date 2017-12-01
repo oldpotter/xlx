@@ -14,13 +14,15 @@ Page({
 		replaytimeFormat: undefined,
 		isCollected: undefined,
 		articleId: undefined,
+		level:undefined
 	},
 
 	onLoad(options) {
 		const _this = this
 		//是否要显示附加信息
 		this.setData({
-			showAttachment: options.showAttachment
+			showAttachment: options.showAttachment,
+			level:app.level
 		})
 		//加载文章
 		if (options.articleId) {

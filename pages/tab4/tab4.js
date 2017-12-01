@@ -4,4 +4,9 @@ Page({
 			url: './collectionlist',
 		})
 	},
+	onClickReadingOptions() {
+		wx.navigateTo({
+			url: './options',
+		})
+	},
 })
