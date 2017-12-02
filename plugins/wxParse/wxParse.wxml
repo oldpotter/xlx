@@ -31,7 +31,10 @@
 <template name="WxEmojiView">
   <view class="WxEmojiView wxParse-inline" style="{{item.styleStr}}">
     <block wx:for="{{item.textArray}}" wx:key="">
-      <block class="{{item.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{item.node == 'text'}}">{{item.text}}</block>
+      <block class="{{item.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{item.node == 'text'}}">
+
+        <text selectable='true'>{{item.text}}</text>
+      </block>
       <block wx:elif="{{item.node == 'element'}}">
         <image class="wxEmoji" src="{{item.baseSrc}}{{item.text}}" />
       </block>
@@ -49,6 +52,8 @@
     <template is="wxParse0" data="{{item}}" />
   </block>
 </template>
+
+
 
 
 <!--循环模版-->
@@ -84,12 +89,12 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<block wx:elif="{{item.tag == 'audio'}}">
+    <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
     </block>
 
@@ -178,8 +183,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -260,8 +265,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -341,8 +346,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -422,8 +427,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -503,8 +508,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -584,8 +589,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -664,8 +669,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -745,8 +750,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -826,8 +831,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -907,8 +912,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
@@ -988,8 +993,8 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
-		<!-- 视频 -->
-		<block wx:elif="{{item.tag == 'embed'}}">
+    <!-- 视频 -->
+    <block wx:elif="{{item.tag == 'embed'}}">
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 

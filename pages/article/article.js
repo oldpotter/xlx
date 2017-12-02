@@ -36,7 +36,7 @@ Page({
 			wx.request({
 				url: `${config.service.getArticleUrl}?id=${_this.data.articleId}&format=JSON`,
 				success: function (res) {
-					console.log(`contentHtml:`, res.data.contentHtml)
+					// console.log(`contentHtml:`, res.data.contentHtml)
 					let article = res.data
 					article.ctimeFormat = util.getTimeFromNow(article.ctime)
 					article.replaytimeFormat = util.getFormatTime(article.replaytime)
