@@ -13,7 +13,7 @@
     </view>
     <view class="weui-cells__tips">收藏仅在本地缓存（程序删除后清空）</view>
 
-		<view class='weui-cells weui_cells-after-title'>
+    <view class='weui-cells weui_cells-after-title'>
       <view class='weui-cell' bindtap='onClickReadingOptions'>
         <!-- <image src="../../resources/like-on.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image> -->
         <view class="weui-cell__bd">阅读设置</view>
@@ -21,5 +21,12 @@
       </view>
     </view>
 
+    <view class='weui-cells weui_cells-after-title'>
+      <view class='weui-cell'>
+        <view class="weui-cell__bd">联系我们</view>
+        <view class="weui-cell__ft"></view>
+        <contact-button></contact-button>
+      </view>
+    </view>
   </view>
 </view>
