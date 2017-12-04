@@ -45,7 +45,7 @@ Page({
 					wx.hideLoading()
 				},
 				fail: function (res) {
-					console.error('请求失败。。。')
+					// console.error('请求失败。。。')
 				},
 			})
 		} else {

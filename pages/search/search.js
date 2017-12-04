@@ -42,14 +42,14 @@ Page(Object.assign({}, Zan.TopTips, {
 		wx.request({
 			url: config.service.getTagsUrl,
 			success: function (res) {
-				console.log('获取tags:', res)
+				// console.log('获取tags:', res)
 				_this.setData({
 					tags: res.data.HITS.slice(0, 10),
 					allTags: res.data.HITS
 				})
 			},
 			fail: function (res) {
-				console.error('失败')
+				// console.error('失败')
 			},
 			complete: function (res) {
 				wx.hideLoading()
@@ -93,6 +93,7 @@ Page(Object.assign({}, Zan.TopTips, {
 		this.setData({
 			selectedTagIndex: -1,
 			list: [],
+			originalList: [],
 			page: 1,
 			noMoreData: false
 		})
@@ -122,7 +123,7 @@ Page(Object.assign({}, Zan.TopTips, {
 					// console.log('request url:', url)
 					//parseList
 					data.forEach((item, idx) => {
-						console.log(item)
+						// console.log(item)
 						wxParse.wxParse('content' + idx, 'html', item.content, _this)
 						if (idx == data.length - 1) {
 							wxParse.wxParseTemArray('list', 'content', data.length, _this, _this.data.list)

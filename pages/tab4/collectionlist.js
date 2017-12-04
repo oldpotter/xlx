@@ -8,7 +8,7 @@ Page({
 	},
 
 	onLoad() {
-		console.log('collectios:', app.collections)
+		// console.log('collectios:', app.collections)
 		const _this = this
 		app.collections.forEach(id => {
 			wx.showLoading({

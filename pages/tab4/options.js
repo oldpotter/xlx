@@ -14,7 +14,7 @@ Page({
 
 	onChange(event) {
 		const value = event.detail.value
-		console.log(`value:${value}`)
+		// console.log(`value:${value}`)
 		this.setData({
 			level: value
 		})
