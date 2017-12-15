@@ -1,5 +1,9 @@
 @import '../../views/userinfo/index.wxss';
 
-.contact-view{
-
+.contact-btn {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  background: salmon;
+	opacity: 0;
 }
