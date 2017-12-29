@@ -15,16 +15,18 @@ Page({
 	},
 
 	onLoad() {
-		let uuid = wx.getStorageSync('uuid')
-		if (!uuid) {
-			console.log('去获取uuid')
+		// let uuid = wx.getStorageSync('uuid')
+		// if (!uuid) {
 			wx.login({
 				success: function (res) {
+					console.log('code:',res.code)
 					wx.request({
 						url: `${config.service.loginUrl}?jsCode=${res.code}`,
 						success: function (res) {
+							console.log('res:',res)
 							if (res.data.MESSAGE == 'SUCCESS') {
 								uuid = res.data.UUID
+								console.log('uuid:',uuid)
 								wx.setStorageSync('uuid', uuid)
 							}
 						},
@@ -39,7 +41,7 @@ Page({
 				},
 				complete: function (res) { },
 			})
-		}
+		// }
 	},
 
 	onClickBtn() {
