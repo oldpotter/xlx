@@ -1,4 +1,6 @@
 App({
+	version: `v1.5.1`,
+
 	onLaunch() {
 		this.collections = wx.getStorageSync('collections') || []
 		this.level = wx.getStorageSync('level') || 25

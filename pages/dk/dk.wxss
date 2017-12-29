@@ -1,0 +1,74 @@
+/* pages/dk/dk.wxss */
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+}
+
+.time {
+  font-size: 100rpx;
+}
+
+.btn {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100px;
+  border: 1rpx solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navi {
+}
+
+.punch-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.punch-mask_show {
+  display: block;
+}
+
+.punch-mask-btn {
+
+}
+
+.punch-text{
+	border: 1rpx solid black;
+	width: 90%;
+}
+
+.punch-info {
+	font-size: 55rpx;
+}
+
+.punch-back{
+	background: lightgrey;
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	width: 80%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}

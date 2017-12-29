@@ -1,0 +1,18 @@
+<!--pages/dk/dk.wxml-->
+<view class='page'>
+  <view class='box'>
+    <view class='time'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
+    <button class='btn' bindtap='onClickBtn'>
+      <text style='color:{{running?"red":"black"}}'>{{running?'结束':'开始'}}</text>
+    </button>
+    <navigator class='navi' url="" class="weui-agree__link">打卡记录</navigator>
+  </view>
+</view>
+
+<view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
+  <view class='punch-back'>
+    <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
+		<textarea class='punch-text' bindinput='onInput' placeholder='说点感受'/>
+    <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onConfirm'>确定</button>
+  </view>
+</view>
