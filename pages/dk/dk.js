@@ -67,7 +67,7 @@ Page({
 					// console.log('url:', url)
 					util.pRequest(url, 'POST')
 						.then(res => {
-							console.log('结果:', res)
+							// console.log('结果:', res)
 							_this.setData({
 								showDialog: false
 							})
@@ -82,6 +82,12 @@ Page({
 		}
 
 
+	},
+
+	onCancel(){
+		this.setData({
+			showDialog: false
+		})
 	},
 
 	onInput(event) {

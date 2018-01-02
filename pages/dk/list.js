@@ -15,6 +15,7 @@ Page({
 			util.handleUUID()
 				.then(res => util.pRequest(`${config.service.getDKsUrl}?uuid=${res}`))
 				.then(res => {
+					console.log(res)
 					if (res.data.MESSAGE == 'SUCCESS') {
 						let list = res.data.DAKA
 						list.reverse()

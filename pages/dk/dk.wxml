@@ -2,9 +2,9 @@
 <view class='page'>
   <view class='box'>
     <view class='time'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
-    <button class='btn' bindtap='onClickBtn'>
+    <view class='btn' bindtap='onClickBtn'>
       <text style='color:{{running?"red":"black"}}'>{{running?'结束':'开始'}}</text>
-    </button>
+    </view>
     <navigator class='navi' url="list" class="weui-agree__link">打卡记录</navigator>
   </view>
 </view>
@@ -12,7 +12,11 @@
 <view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
   <view class='punch-back'>
     <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
-		<textarea class='punch-text' bindinput='onInput' placeholder='说点感受'/>
-    <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onConfirm'>确定</button>
+    <textarea class='punch-text' bindinput='onInput' placeholder='说点感受' />
+    <view class='btns-box'>
+      <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
+      <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onCancel'>取消</button>
+    </view>
+
   </view>
 </view>

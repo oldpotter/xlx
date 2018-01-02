@@ -13,6 +13,13 @@
   width: 80%;
 }
 
+.btns-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: baseline;
+}
+
 .time {
   font-size: 100rpx;
 }
@@ -47,7 +54,7 @@
 }
 
 .punch-mask-btn {
-
+	margin: 30rpx;
 }
 
 .punch-text{
