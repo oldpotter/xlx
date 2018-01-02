@@ -1,4 +1,5 @@
 const moment = require('../plugins/moment.min.js')
+const config = require('../config.js')
 const formatTime = date => {
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1
@@ -44,9 +45,37 @@ function pRequest(url, data, method = 'GET', header = {}, dataType = 'json') {
 	})
 }
 
+function handleUUID() {
+	return new Promise((resolve, reject) => {
+		let uuid = wx.getStorageSync('uuid')
+		// let uuid
+		if (uuid) {
+			resolve(uuid)
+		} else {
+			wx.login({
+				success: function (res) {
+					util.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
+						.then(res => {
+							if (res.data.MESSAGE == 'SUCCESS') {
+								uuid = res.data.UUID
+								wx.setStorageSync('uuid', uuid)
+								resolve(uuid)
+							}
+						})
+				},
+				fail: function (res) {
+					reject('wx.login失败')
+				},
+				complete: function (res) { },
+			})
+		}
+	})
+}
+
 module.exports = {
 	formatTime,
 	getTimeFromNow,
 	getFormatTime,
 	pRequest,
+	handleUUID
 }

@@ -15,34 +15,6 @@ Page({
 		dkItem: new DkItem()
 	},
 
-
-	handleUUID() {
-		return new Promise((resolve, reject) => {
-			// let uuid = wx.getStorageSync('uuid')
-			let uuid
-			if (uuid) {
-				resolve(uuid)
-			} else {
-				wx.login({
-					success: function (res) {
-						util.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
-							.then(res => {
-								if (res.data.MESSAGE == 'SUCCESS') {
-									uuid = res.data.UUID
-									wx.setStorageSync('uuid', uuid)
-									resolve(uuid)
-								}
-							})
-					},
-					fail: function (res) {
-						reject('wx.login失败')
-					},
-					complete: function (res) { },
-				})
-			}
-		})
-	},
-
 	//点击“开始”亦或“结束”按钮
 	onClickBtn() {
 		if (!this.data.running) {
@@ -89,11 +61,11 @@ Page({
 			title: '请稍后',
 		})
 		try {
-			this.handleUUID()
+			util.handleUUID()
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
-					console.log('url:', url)
-					util.pRequest(url)
+					// console.log('url:', url)
+					util.pRequest(url,'POST')
 						.then(res => {
 							console.log('结果:', res)
 							_this.setData({
