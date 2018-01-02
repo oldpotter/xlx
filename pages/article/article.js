@@ -50,7 +50,7 @@ Page({
 							// console.log(`res:${res}`)
 							setTimeout(() => {
 								wx.pageScrollTo({
-									scrollTop: res,
+									scrollTop: res.data,
 								})
 							}, 100)
 						},
@@ -70,7 +70,7 @@ Page({
 				success: function (res) {
 					setTimeout(() => {
 						wx.pageScrollTo({
-							scrollTop: res,
+							scrollTop: res.data,
 						})
 					}, 100)
 				},
