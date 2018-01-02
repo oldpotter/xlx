@@ -5,7 +5,7 @@
     <button class='btn' bindtap='onClickBtn'>
       <text style='color:{{running?"red":"black"}}'>{{running?'结束':'开始'}}</text>
     </button>
-    <navigator class='navi' url="" class="weui-agree__link">打卡记录</navigator>
+    <navigator class='navi' url="list" class="weui-agree__link">打卡记录</navigator>
   </view>
 </view>
 

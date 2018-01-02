@@ -1,6 +1,7 @@
 const moment = require('../../plugins/moment.min.js')
 const DkItem = require('../../models/dkitem.js')
 const config = require('../../config.js')
+const util = require('../../utils/util.js')
 Page({
 	data: {
 		start: undefined,//开始时间
@@ -14,36 +15,35 @@ Page({
 		dkItem: new DkItem()
 	},
 
-	onLoad() {
-		// let uuid = wx.getStorageSync('uuid')
-		// if (!uuid) {
-			wx.login({
-				success: function (res) {
-					console.log('code:',res.code)
-					wx.request({
-						url: `${config.service.loginUrl}?jsCode=${res.code}`,
-						success: function (res) {
-							console.log('res:',res)
-							if (res.data.MESSAGE == 'SUCCESS') {
-								uuid = res.data.UUID
-								console.log('uuid:',uuid)
-								wx.setStorageSync('uuid', uuid)
-							}
-						},
-						fail: function (res) {
-							console.error('request失败：', res)
-						},
-						complete: function (res) { },
-					})
-				},
-				fail: function (res) {
-					console.error('login失败:', res)
-				},
-				complete: function (res) { },
-			})
-		// }
+
+	handleUUID() {
+		return new Promise((resolve, reject) => {
+			// let uuid = wx.getStorageSync('uuid')
+			let uuid
+			if (uuid) {
+				resolve(uuid)
+			} else {
+				wx.login({
+					success: function (res) {
+						util.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
+							.then(res => {
+								if (res.data.MESSAGE == 'SUCCESS') {
+									uuid = res.data.UUID
+									wx.setStorageSync('uuid', uuid)
+									resolve(uuid)
+								}
+							})
+					},
+					fail: function (res) {
+						reject('wx.login失败')
+					},
+					complete: function (res) { },
+				})
+			}
+		})
 	},
 
+	//点击“开始”亦或“结束”按钮
 	onClickBtn() {
 		if (!this.data.running) {
 			//开始
@@ -62,8 +62,9 @@ Page({
 			//结束
 			clearInterval(this.interval)
 			let duration = this.preciseDiff(this.data.start, moment(), true)
-			// console.log(`${duration.hours}小时${duration.minutes}分钟${duration.seconds}秒`)
+			console.log(`${duration.hours}小时${duration.minutes}分钟${duration.seconds}秒`)
 			let dkItem = this.data.dkItem
+			dkItem.duration = this.data.duration
 			dkItem.tsDuration = moment().diff(this.data.start)
 			dkItem.tsDate = moment().format('x')
 
@@ -81,30 +82,34 @@ Page({
 		}
 	},
 
+	//点击确定
 	onConfirm() {
-		let uuid = wx.getStorageSync('uuid')
-		if (!uuid) {
-			return console.error('未找到uuid')
-		}
 		const _this = this
 		wx.showLoading({
 			title: '请稍后',
 		})
-		const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
-		console.log('url:',url)
-		wx.request({
-			url: url,
-			success: function (res) {
-				console.log('saveDk:', res)
-			},
-			fail: function (res) {
-				console.error('saveDK:', res)
-			},
-			complete: function (res) { },
-		})
-		_this.setData({
-			showDialog: false
-		})
+		try {
+			this.handleUUID()
+				.then(uuid => {
+					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
+					console.log('url:', url)
+					util.pRequest(url)
+						.then(res => {
+							console.log('结果:', res)
+							_this.setData({
+								showDialog: false
+							})
+							wx.showToast({
+								title: '保存成功',
+							})
+						})
+				})
+		} catch (err) {
+			wx.hideLoading()
+			console.error('出错啦：', err)
+		}
+
+
 	},
 
 	onInput(event) {

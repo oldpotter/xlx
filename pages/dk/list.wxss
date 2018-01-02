@@ -1,0 +1,19 @@
+/* pages/dk/list.wxss */
+
+.box {
+	margin-top: 20rpx;
+	border: 1rpx solid lightgray;
+	padding: 20rpx;
+}
+
+
+
+.infos{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-top:1rpx solid lightgray;
+	color: gray;
+	font-size: 12px;
+}
