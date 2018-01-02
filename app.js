@@ -1,5 +1,5 @@
 App({
-	version: `v1.5.1`,
+	version: `v1.6.0`,
 
 	onLaunch() {
 		this.collections = wx.getStorageSync('collections') || []

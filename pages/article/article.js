@@ -43,6 +43,21 @@ Page({
 					app.article = article
 					_this.parseArticle()
 					wx.hideLoading()
+					// console.log(article.articleId)
+					wx.getStorage({
+						key: `scrollTop_${article.id}`,
+						success: function (res) {
+							// console.log(`res:${res}`)
+							setTimeout(() => {
+								wx.pageScrollTo({
+									scrollTop: res,
+								})
+							}, 100)
+						},
+						fail: function (res) { },
+						complete: function (res) { },
+					})
+
 				},
 				fail: function (res) {
 					// console.error('请求失败。。。')
@@ -50,6 +65,18 @@ Page({
 			})
 		} else {
 			this.parseArticle()
+			wx.getStorage({
+				key: `scrollTop_${this.data.articleId}`,
+				success: function (res) {
+					setTimeout(() => {
+						wx.pageScrollTo({
+							scrollTop: res,
+						})
+					}, 100)
+				},
+				fail: function (res) { },
+				complete: function (res) { },
+			})
 		}
 		//收藏按钮
 		const isCollected = app.collections.some(id => id == this.data.articleId)
@@ -63,6 +90,14 @@ Page({
 			key: 'collections',
 			data: app.collections,
 		})
+		wx.setStorage({
+			key: `scrollTop_${this.data.articleId}`,
+			data: this.scrollTop,
+		})
+	},
+
+	onPageScroll(event) {
+		this.scrollTop = event.scrollTop
 	},
 
 	parseArticle() {
@@ -96,8 +131,6 @@ Page({
 
 		// console.log(`contentHtml:${contentHtml}`)
 		wxParse.wxParse('article', 'html', contentHtml, this, 20)
-
-
 	},
 
 	//点击收藏按钮
@@ -117,8 +150,7 @@ Page({
 	wxParseTagATap(event) {
 		const url = event.currentTarget.dataset.src
 		let ifInnerUrl = /http:\/\/www.xuelingxiu.com\/yuanwushi\/[\w]+.html/.test(url)
-		console.log(`url:${url}
-		result:${ifInnerUrl}`)
+		// console.log(`url:${url}result:${ifInnerUrl}`)
 		if (ifInnerUrl) {
 			const articleId = url.replace(/http:\/\/www.xuelingxiu.com\/yuanwushi\//, '')
 				.replace(/.html/, '')
