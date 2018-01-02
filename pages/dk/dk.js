@@ -65,7 +65,7 @@ Page({
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
 					// console.log('url:', url)
-					util.pRequest(url,'POST')
+					util.pRequest(url, 'POST')
 						.then(res => {
 							console.log('结果:', res)
 							_this.setData({

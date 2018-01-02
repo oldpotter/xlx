@@ -46,6 +46,7 @@ function pRequest(url, data, method = 'GET', header = {}, dataType = 'json') {
 }
 
 function handleUUID() {
+	const _this = this
 	return new Promise((resolve, reject) => {
 		let uuid = wx.getStorageSync('uuid')
 		// let uuid
@@ -54,7 +55,7 @@ function handleUUID() {
 		} else {
 			wx.login({
 				success: function (res) {
-					util.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
+					_this.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
 								uuid = res.data.UUID
