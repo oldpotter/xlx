@@ -14,8 +14,8 @@
     <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
     <textarea class='punch-text' bindinput='onInput' placeholder='说点感受' />
     <view class='btns-box'>
-      <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
       <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onCancel'>取消</button>
+      <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
     </view>
 
   </view>
