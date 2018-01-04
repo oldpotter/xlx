@@ -65,15 +65,19 @@ Page({
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
 					// console.log('url:', url)
-					util.pRequest(url, 'POST')
+					util.pRequest(url,'POST')
 						.then(res => {
-							// console.log('结果:', res)
-							_this.setData({
-								showDialog: false
-							})
-							wx.showToast({
-								title: '保存成功',
-							})
+							if (res.data.MESSAGE == 'SUCCESS') {
+								_this.setData({
+									showDialog: false
+								})
+								wx.showToast({
+									title: '保存成功',
+								})
+							}else{
+								console.error('保存失败....')
+							}
+
 						})
 				})
 		} catch (err) {
@@ -84,7 +88,7 @@ Page({
 
 	},
 
-	onCancel(){
+	onCancel() {
 		this.setData({
 			showDialog: false
 		})
