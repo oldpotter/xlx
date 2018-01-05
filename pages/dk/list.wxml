@@ -1,14 +1,9 @@
 <!--pages/dk/list.wxml-->
+<import src='./dkitem.wxml' />
 <view class='page'>
   <view class='page__bd page__bd_spacing'>
     <view wx:for='{{list}}' wx:key='id'>
-      <view class='box'>
-        <view class='record'>{{item.record}}</view>
-        <view class='infos'>
-          <view class='date'>{{item.displayctime}}</view>
-          <view class='duration'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
-        </view>
-      </view>
+      <template is='dkitem' data='{{item}}' />
     </view>
   </view>
 </view>
