@@ -1,11 +1,23 @@
 <!--pages/dk/dk.wxml-->
 <view class='page'>
-  <view class='box'>
-    <view class='time'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
+  <view class='page__bd box'>
+    <view class='clock'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
     <view class='btn' bindtap='onClickBtn'>
-      <text style='color:{{running?"red":"black"}}'>{{running?'结束':'开始'}}</text>
+      <text style='color:{{running?"red":"black"}}'>{{running?'结束打卡':'点击打卡'}}</text>
     </view>
-    <navigator class='navi' url="list" class="weui-agree__link">打卡记录</navigator>
+    <view class='recent-list'>
+      <view class='navi'>
+        <navigator url="list" class="weui-agree__link">更多打卡记录</navigator>
+      </view>
+      <view wx:for='{{list}}' wx:key='id'>
+        <view class='recent-item'>
+          <text class='item-info'>{{item.displayctime}}</text>
+          <text class='item-info'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</text>
+          <text class='item-info record'>{{item.record}}</text>
+        </view>
+      </view>
+
+    </view>
   </view>
 </view>
 

@@ -12,7 +12,12 @@ Page({
 		},
 		running: false,//是否正在计时
 		showDialog: false,
-		dkItem: new DkItem()
+		dkItem: new DkItem(),
+		list: undefined
+	},
+
+	onLoad() {
+		this.getData()
 	},
 
 	//点击“开始”亦或“结束”按钮
@@ -65,7 +70,7 @@ Page({
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
 					// console.log('url:', url)
-					util.pRequest(url,'POST')
+					util.pRequest(url, 'POST')
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
 								_this.setData({
@@ -74,7 +79,8 @@ Page({
 								wx.showToast({
 									title: '保存成功',
 								})
-							}else{
+								_this.getData()
+							} else {
 								console.error('保存失败....')
 							}
 
@@ -84,8 +90,6 @@ Page({
 			wx.hideLoading()
 			console.error('出错啦：', err)
 		}
-
-
 	},
 
 	onCancel() {
@@ -100,6 +104,39 @@ Page({
 			[param]: event.detail.value
 		})
 		// console.log(this.data.dkItem.content)
+	},
+
+	getData(){
+		try {
+			const _this = this
+			wx.showLoading({
+				title: '请稍后',
+			})
+			util.handleUUID()
+				.then(res => util.pRequest(`${config.service.getDKsUrl}?uuid=${res}&num=5&page=1`))
+				.then(res => {
+					if (res.data.MESSAGE == 'SUCCESS') {
+						// console.log(res)
+						let list = res.data.DAKA
+						list
+							.forEach(item => {
+								item.displayctime = moment(item.ctime).format('YYYY-MM-DD  HH:mm')
+								item.displayduration = {
+									hours: moment.duration(item.duration).hours(),
+									minutes: moment.duration(item.duration).minutes(),
+									seconds: moment.duration(item.duration).seconds(),
+								}
+							})
+						_this.setData({ list })
+						wx.hideLoading()
+					}
+
+				})
+		}
+		catch (err) {
+			wx.hideLoading()
+			console.error(err)
+		}
 	},
 
 	//工具方法
