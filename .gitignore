@@ -1,2 +1,2 @@
-./config.js
-config.js
+./client/config.js
+./server/config.js
