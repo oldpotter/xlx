@@ -10,10 +10,10 @@
         <navigator url="list" class="weui-agree__link">更多打卡记录</navigator>
       </view>
       <view wx:for='{{list}}' wx:key='id'>
-        <view class='recent-item'>
-          <text class='item-info'>{{item.displayctime}}</text>
-          <text class='item-info'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</text>
-          <text class='item-info record'>{{item.record}}</text>
+        <view class='recent-item {{index==4?"border-bottom":""}}'>
+          <text class='col'>{{item.displayctime}}</text>
+          <text class='col'>{{item.displayduration}}</text>
+          <text class='col record'>{{item.record}}</text>
         </view>
       </view>
 

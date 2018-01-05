@@ -20,7 +20,7 @@ Page({
 						let list = res.data.DAKA
 						list
 							.forEach(item => {
-								item.displayctime = moment(item.ctime).format('YYYY年MM月DD日')
+								item.displayctime = moment(item.ctime).format('YYYY年MM月DD日 HH:mm')
 								item.displayduration = {
 									hours: moment.duration(item.duration).hours(),
 									minutes: moment.duration(item.duration).minutes(),

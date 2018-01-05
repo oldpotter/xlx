@@ -106,7 +106,7 @@ Page({
 		// console.log(this.data.dkItem.content)
 	},
 
-	getData(){
+	getData() {
 		try {
 			const _this = this
 			wx.showLoading({
@@ -121,11 +121,11 @@ Page({
 						list
 							.forEach(item => {
 								item.displayctime = moment(item.ctime).format('YYYY-MM-DD  HH:mm')
-								item.displayduration = {
-									hours: moment.duration(item.duration).hours(),
-									minutes: moment.duration(item.duration).minutes(),
-									seconds: moment.duration(item.duration).seconds(),
-								}
+								const hours = moment.duration(item.duration).hours()
+								const minutes = moment.duration(item.duration).minutes()
+								const seconds = moment.duration(item.duration).seconds()
+								item.displayduration = hours > 0 ? `${hours}:` : '' + `${minutes}分` + `${seconds}秒`
+
 							})
 						_this.setData({ list })
 						wx.hideLoading()
