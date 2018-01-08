@@ -41,4 +41,31 @@ Page({
 
 	},
 
+	onClickDelete(event) {
+		const _this = this
+		const id = event.currentTarget.dataset.id
+		console.log('id:', id)
+		wx.showActionSheet({
+			itemList: ['删除'],
+			itemColor: 'red',
+			success: function (res) {
+				util.handleUUID()
+					.then(res => util.pRequest(`${config.service.deleteDKUrl}?uuid=${res}&id=${id}`))
+					.then(res => {
+						if (res.data.MESSAGE == 'SUCCESS') {
+							wx.showToast({
+								title: '删除成功',
+							})
+							let list = _this.data.list.filter(item => item.id != id)
+							_this.setData({ list })
+						}else{
+							console.error('删除失败!!')
+						}
+					})
+			},
+			fail: function (res) { },
+			complete: function (res) { },
+		})
+	},
+
 })
