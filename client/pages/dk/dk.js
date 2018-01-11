@@ -13,10 +13,11 @@ Page({
 		running: false,//是否正在计时
 		showDialog: false,
 		dkItem: new DkItem(),
-		list: undefined
+		list: undefined,
+		focus: true,
 	},
 
-	onLoad() {
+	onShow() {
 		this.getData()
 	},
 
@@ -39,7 +40,7 @@ Page({
 			//结束
 			clearInterval(this.interval)
 			let duration = this.preciseDiff(this.data.start, moment(), true)
-			console.log(`${duration.hours}小时${duration.minutes}分钟${duration.seconds}秒`)
+			// console.log(`${duration.hours}小时${duration.minutes}分钟${duration.seconds}秒`)
 			let dkItem = this.data.dkItem
 			dkItem.duration = this.data.duration
 			dkItem.tsDuration = moment().diff(this.data.start)
@@ -92,6 +93,13 @@ Page({
 		}
 	},
 
+	//点击打卡背景
+	onClickBack() {
+		this.setData({
+			focus: false
+		})
+	},
+
 	onCancel() {
 		this.setData({
 			showDialog: false
@@ -120,7 +128,8 @@ Page({
 						let list = res.data.DAKA
 						list
 							.forEach(item => {
-								item.displayctime = moment(item.ctime).format('YYYY-MM-DD  HH:mm')
+								const diff = moment().diff(item.ctime)
+								item.displayctime = diff < 60000 ? '刚刚':moment(item.ctime).fromNow()
 								const hours = moment.duration(item.duration).hours()
 								const minutes = moment.duration(item.duration).minutes()
 								const seconds = moment.duration(item.duration).seconds()

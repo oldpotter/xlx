@@ -1,7 +1,13 @@
+const moment = require('./plugins/moment.min.js')
 App({
-	version: `v1.6.1`,
+	version: `v1.6.2`,
 
 	onLaunch() {
+		moment.locale('zh', {
+			relativeTime: {
+				past: "%s前",
+			}
+		});
 		this.collections = wx.getStorageSync('collections') || []
 		this.level = wx.getStorageSync('level') || 25
 		// console.log('collections:',this.collections)

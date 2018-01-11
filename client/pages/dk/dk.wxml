@@ -13,7 +13,7 @@
         <view class='recent-item {{index==4?"border-bottom":""}}'>
           <text class='col'>{{item.displayctime}}</text>
           <text class='col'>{{item.displayduration}}</text>
-          <text class='col record'>{{item.record}}</text>
+          <text class='col record col-last'>{{item.record}}</text>
         </view>
       </view>
 
@@ -22,13 +22,12 @@
 </view>
 
 <view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
-  <view class='punch-back'>
+  <view class='punch-back' bindtap='onClickBack'>
     <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
-    <textarea class='punch-text' bindinput='onInput' placeholder='说点感受' />
+    <textarea class='punch-text' show-confirm-bar='' bindinput='onInput' placeholder='说点感受' focus='{{focus&&showDialog}}'/>
     <view class='btns-box'>
       <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onCancel'>取消</button>
       <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
     </view>
-
   </view>
 </view>

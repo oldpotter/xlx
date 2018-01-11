@@ -9,5 +9,8 @@
     <view wx:if='{{showAttachment}}' class='content-attach'>回答时间:{{replaytimeFormat}}</view>
     <template is='wxParse' data='{{wxParseData:article.nodes}}' />
   </view>
+
+	<image class='share' src='../../resources/share.png' bindtap='onClickShare'></image>
+	<button class='share share-btn' open-type='share'></button>
   <image class='collection {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
 </view>

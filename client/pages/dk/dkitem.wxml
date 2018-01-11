@@ -6,5 +6,10 @@
       <view class='duration'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
     </view>
     <image class='delete' src='../../resources/delete.png' bindtap='onClickDelete' data-id='{{item.id}}'></image>
+    <view class='share-box'>
+      <image class='share-img' src='../../resources/share.png' bindtap='onClickShare'></image>
+      <button class='share-btn' open-type='share'></button>
+    </view>
+
   </view>
 </template>

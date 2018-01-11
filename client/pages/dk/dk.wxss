@@ -1,4 +1,5 @@
 /* pages/dk/dk.wxss */
+
 .box {
   display: flex;
   flex-direction: column;
@@ -43,7 +44,7 @@
 }
 
 .recent-item {
-	padding: 10rpx;
+  padding: 10rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -54,12 +55,19 @@
   border-top: 1rpx solid lightgray;
 }
 
-.border-bottom{
-	border-bottom: 1rpx solid lightgray;
+.border-bottom {
+  border-bottom: 1rpx solid lightgray;
 }
 
 .col {
-  margin-left: 30rpx;
+  flex: 1;
+  text-align: start;
+  /* background: salmon; */
+}
+
+.col-last {
+  flex: 3;
+  /* background: saddlebrown; */
 }
 
 .record {
@@ -70,8 +78,8 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  max-width: 33%;
-	text-align: left;
+  max-width: 50%;
+  text-align: left;
 }
 
 .punch-mask {

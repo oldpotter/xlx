@@ -100,6 +100,17 @@ Page({
 		this.scrollTop = event.scrollTop
 	},
 
+	onShareAppMessage(messages) {
+		const _this = this
+		// console.log('messsages:', messages)
+		// console.log('articleId:', this.data.articleId)
+		return {
+			path: `/pages/article/article?articleId=${_this.data.articleId}&showAttachment=true`,
+			success(res) { },
+			fail(res) { },
+		}
+	},
+
 	parseArticle() {
 		this.setData({
 			articleId: app.article.id,
@@ -133,6 +144,16 @@ Page({
 		wxParse.wxParse('article', 'html', contentHtml, this, 20)
 	},
 
+	onClickShare(){
+		console.log('click')
+		wx.showShareMenu({
+			withShareTicket: true,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
+	},
+
 	//点击收藏按钮
 	onClickCollection() {
 		//动画
@@ -156,9 +177,6 @@ Page({
 				.replace(/.html/, '')
 			wx.navigateTo({
 				url: `./article?articleId=${articleId}&showAttachment=true`,
-				success: function (res) { },
-				fail: function (res) { },
-				complete: function (res) { },
 			})
 		}
 

@@ -5,5 +5,17 @@
     <view wx:for='{{list}}' wx:key='id'>
       <template is='dkitem' data='{{item}}' />
     </view>
+    <view wx:if='{{isLoading}}' class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+
+    <view wx:if='{{originalList.length == 0}}' class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有数据</view>
+    </view>
+
+    <view wx:if='{{noMoreData}}' class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多文章</view>
+    </view>
   </view>
 </view>

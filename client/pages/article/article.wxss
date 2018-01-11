@@ -12,16 +12,28 @@
   font-size: 14px;
 }
 
-.collection{
-	position: fixed;
-	bottom: 20rpx;
-	right: 20rpx;
-	width:50rpx;
-	height: 50rpx;
+.share {
+  position: fixed;
+  bottom: 85rpx;
+  right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.share-btn {
+  opacity: 0;
+}
+
+.collection {
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .collection_on {
-   animation: like-animation 1s; 
+  animation: like-animation 1s;
 }
 
 @keyframes like-animation {

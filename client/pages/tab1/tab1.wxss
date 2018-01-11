@@ -67,3 +67,30 @@
 .kind-list__item-bd_show {
   height: auto;
 }
+
+
+.one{
+	color: lightgray;
+	text-align: center;
+}
+.two{
+	font-weight:bold;
+	font-size: 16px;
+}
+
+.three{
+
+}
+
+.four{
+	font-weight:bold;
+	font-size: 16px;
+}
+
+.five{
+	font-style:italic;
+}
+
+.six{
+	float: right;
+}
