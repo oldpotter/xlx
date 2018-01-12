@@ -129,11 +129,12 @@ Page({
 						list
 							.forEach(item => {
 								const diff = moment().diff(item.ctime)
-								item.displayctime = diff < 60000 ? '刚刚':moment(item.ctime).fromNow()
-								const hours = moment.duration(item.duration).hours()
-								const minutes = moment.duration(item.duration).minutes()
-								const seconds = moment.duration(item.duration).seconds()
-								item.displayduration = hours > 0 ? `${hours}:` : '' + `${minutes}分` + `${seconds}秒`
+								item.displayctime = diff < 60000 ? '刚刚' : moment(item.ctime).fromNow()
+								item.displayduration = {
+									hours: moment.duration(item.duration).hours(),
+									minutes: moment.duration(item.duration).minutes(),
+									seconds: moment.duration(item.duration).seconds(),
+								}
 
 							})
 						_this.setData({ list })

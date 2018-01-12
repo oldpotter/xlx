@@ -1,15 +1,26 @@
 <template name='dkitem'>
-  <view class='box'>
-    <view class='record'>{{item.record}}</view>
+  <view class='bg'>
+    <image class='icon' src='../../resources/clock.png'></image>
+    <view class='content_bg'>
+      <view class='date-bg'>
+        <view class='date'>{{item.displayctime}}</view>
+        <view class='dura'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
+      </view>
+      <view>
+        <text class='content'>{{item.record}}</text>
+      </view>
+    </view>
+
+    <!-- 
     <view class='infos'>
-      <view class='date'>{{item.displayctime}}</view>
-      <view class='duration'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
+      
+
     </view>
     <image class='delete' src='../../resources/delete.png' bindtap='onClickDelete' data-id='{{item.id}}'></image>
     <view class='share-box'>
       <image class='share-img' src='../../resources/share.png' bindtap='onClickShare'></image>
       <button class='share-btn' open-type='share'></button>
-    </view>
+    </view> -->
 
   </view>
 </template>

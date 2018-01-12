@@ -1,33 +1,36 @@
 <!--pages/dk/dk.wxml-->
+<import src='./dkitem.wxml' />
 <view class='page'>
-  <view class='page__bd box'>
+  <view class='top-bg'>
     <view class='clock'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
     <view class='btn' bindtap='onClickBtn'>
-      <text style='color:{{running?"red":"black"}}'>{{running?'结束打卡':'点击打卡'}}</text>
-    </view>
-    <view class='recent-list'>
-      <view class='navi'>
-        <navigator url="list" class="weui-agree__link">更多打卡记录</navigator>
-      </view>
-      <view wx:for='{{list}}' wx:key='id'>
-        <view class='recent-item {{index==4?"border-bottom":""}}'>
-          <text class='col'>{{item.displayctime}}</text>
-          <text class='col'>{{item.displayduration}}</text>
-          <text class='col record col-last'>{{item.record}}</text>
-        </view>
-      </view>
-
+      <text class='btn-text'>{{running?'结束打卡':'点击打卡'}}</text>
     </view>
   </view>
+
+  <view class='list_title-bg'>
+    <view class='list-title'>打卡记录</view>
+    <view class='navi'>
+      <navigator url="list" class="weui-agree__link navi">更多</navigator>
+    </view>
+  </view>
+
+  <view class='recent-list'>
+    <view wx:for='{{list}}' wx:key='id'>
+      <template is='dkitem' data='{{item}}' />
+    </view>
+
+  </view>
+
 </view>
 
-<view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
+ <view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
   <view class='punch-back' bindtap='onClickBack'>
     <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
-    <textarea class='punch-text' show-confirm-bar='' bindinput='onInput' placeholder='说点感受' focus='{{focus&&showDialog}}'/>
+    <textarea class='punch-text' show-confirm-bar='' bindinput='onInput' placeholder='说点感受' focus='{{focus&&showDialog}}' />
     <view class='btns-box'>
       <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onCancel'>取消</button>
       <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
     </view>
   </view>
-</view>
+</view> 

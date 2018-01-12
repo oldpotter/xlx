@@ -1,18 +1,53 @@
-.box {
-  margin-top: 20rpx;
-  border: 1rpx solid lightgray;
-  padding: 20rpx 20rpx 50rpx 20rpx;
+.bg {
+  /* border: 1rpx solid lightgray; */
+	margin-top: 30rpx;
+	box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.09);
+	border-radius: 20rpx;
+	padding: 30rpx;
+	display: flex;
+	flex-direction: row;
 }
 
-.infos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1rpx solid lightgray;
-  color: gray;
-  font-size: 12px;
+.icon{
+	margin: 30rpx 30rpx;
+	width:30rpx;
+	height: 30rpx;
 }
+
+.content_bg{
+	 flex: 1; 
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: space-around;
+	 align-items: stretch;
+
+}
+
+.date{
+	/* background: salmon; */
+}
+
+.dura{
+	font-size: 36rpx;
+}
+
+.date-bg{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.content{
+	color: lightgray;
+	display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 
 .delete {
   width: 40rpx;
@@ -21,20 +56,20 @@
 }
 
 .share-box {
-	margin-right: 20rpx;
+  margin-right: 20rpx;
   width: 40rpx;
-  height:40rpx;
+  height: 40rpx;
   float: right;
-	/* background: lemonchiffon; */
+  /* background: lemonchiffon; */
 }
 
 .share-img {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .share-btn {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
   opacity: 0;
 }
