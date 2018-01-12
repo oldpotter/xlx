@@ -80,10 +80,17 @@ Page({
 		}
 	},
 
+	onClickItem(event){
+		const index = event.currentTarget.dataset.index
+		const param = `list[${index}].isSelected`
+		this.setData({
+			[param]:true
+		})
+	},
+
 	onClickDelete(event) {
 		const _this = this
 		const id = event.currentTarget.dataset.id
-		console.log('id:', id)
 		wx.showActionSheet({
 			itemList: ['删除'],
 			itemColor: 'red',
@@ -105,6 +112,10 @@ Page({
 			fail: function (res) { },
 			complete: function (res) { },
 		})
+	},
+
+	onClickShare(event){
+		console.log('share')
 	},
 
 	onShareAppMessage(messages) {

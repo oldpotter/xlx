@@ -1,26 +1,27 @@
 <template name='dkitem'>
-  <view class='bg'>
-    <image class='icon' src='../../resources/clock.png'></image>
+  <view class='bg {{item.isSelected?"bg_on":""}}' bindtap='onClickItem' data-index='{{index}}'>
+    <image class='icon' src='{{item.isSelected?"../../resources/clock_on.png":"../../resources/clock.png"}}'></image>
     <view class='content_bg'>
       <view class='date-bg'>
         <view class='date'>{{item.displayctime}}</view>
-        <view class='dura'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
+        <view class='dura {{item.isSelected?"dura_on":""}}'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
       </view>
       <view>
-        <text class='content'>{{item.record}}</text>
+        <text class='content {{item.isSelected ? "":"content_ellipsis"}}'>{{item.record}}</text>
       </view>
     </view>
 
-    <!-- 
-    <view class='infos'>
-      
-
+  </view>
+  <view wx:if='{{item.isSelected}}' class='btns'>
+    <view class='btn-bg' bindtap='onClickShare'>
+      <image id='share' class='btn_img' src='../../resources/share.png'></image>
+      <view class='btn_text'>分享</view>
     </view>
-    <image class='delete' src='../../resources/delete.png' bindtap='onClickDelete' data-id='{{item.id}}'></image>
-    <view class='share-box'>
-      <image class='share-img' src='../../resources/share.png' bindtap='onClickShare'></image>
-      <button class='share-btn' open-type='share'></button>
-    </view> -->
+    <view class='btn-bg' bindtap='onClickDelete' data-id='{{item.id}}'>
+      <image class='btn_img' src='../../resources/delete.png'></image>
+      <view class='btn_text'>删除</view>
+    </view>
 
   </view>
+
 </template>

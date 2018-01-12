@@ -24,13 +24,17 @@
 
 </view>
 
- <view class='punch-mask {{showDialog?"punch-mask_show":""}}'>
-  <view class='punch-back' bindtap='onClickBack'>
+ <view class='prompt-bg {{showDialog?"prompt-bg_show":""}}'>
+	<image class='prompt_close' src='../../resources/close.png' bindtap='onClickClose'></image>
+	<view class='prompt_title'>打卡时长</view>
+	<view class='prompt_duration'>{{dkItem.duration.hours}}:{{dkItem.duration.minutes}}:{{dkItem.duration.seconds}}</view>
+	<!-- <view class='prompt_date'>{{}}</view> -->
+  <!-- <view class='punch-back' bindtap='onClickBack'>
     <text class='punch-info'>时长：{{dkItem.duration.hours}}小时{{dkItem.duration.minutes}}分{{dkItem.duration.seconds}}秒</text>
     <textarea class='punch-text' show-confirm-bar='' bindinput='onInput' placeholder='说点感受' focus='{{focus&&showDialog}}' />
     <view class='btns-box'>
       <button class='weui-btn punch-mask-btn' size='mini' type='default' bindtap='onCancel'>取消</button>
       <button class='weui-btn punch-mask-btn' size='mini' type='primary' bindtap='onConfirm'>确定</button>
     </view>
-  </view>
+  </view> -->
 </view> 

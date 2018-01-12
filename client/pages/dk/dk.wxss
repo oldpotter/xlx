@@ -56,44 +56,34 @@
 	padding: 0 30rpx;
 }
 
-.punch-mask {
+.prompt-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.7);
+  background: #e9e4f5;
   display: none;
 }
 
-.punch-mask_show {
+.prompt-bg_show {
   display: block;
 }
 
-.punch-mask-btn {
-  margin: 30rpx;
+.prompt_close{
+	width: 50rpx;
+	height: 50rpx;
+	float: right;
+	margin: 30rpx 30rpx;
+}
+.prompt_title{
+	margin-top: 80rpx;
+	margin-left: 30rpx;
+	font-size: 34rpx;
 }
 
-.punch-text {
-  border: 1rpx solid black;
-  width: 90%;
-}
-
-.punch-info {
-  font-size: 55rpx;
-}
-
-.punch-back {
-  background: lightgrey;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+.prompt_duration{
+	font-size: 60rpx;
+	margin-left: 30rpx;
 }

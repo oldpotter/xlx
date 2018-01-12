@@ -93,12 +93,12 @@ Page({
 		}
 	},
 
-	//点击打卡背景
-	onClickBack() {
+	onClickClose(){
 		this.setData({
-			focus: false
+			showDialog:false
 		})
 	},
+
 
 	onCancel() {
 		this.setData({
