@@ -13,7 +13,8 @@
     "pages/web-view/web-view",
     "pages/tab4/options",
     "pages/dk/dk",
-    "pages/dk/list"
+    "pages/dk/list",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",

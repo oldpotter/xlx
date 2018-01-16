@@ -1,0 +1,18 @@
+/* pages/share/share.wxss */
+
+.page-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: lightblue;
+}
+
+.card-bg {
+  border-radius: 25rpx;
+  margin: 100rpx 80rpx;
+  background: lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

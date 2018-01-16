@@ -1,27 +1,38 @@
 <template name='dkitem'>
-  <view class='bg {{item.isSelected?"bg_on":""}}' bindtap='onClickItem' data-index='{{index}}'>
-    <image class='icon' src='{{item.isSelected?"../../resources/clock_on.png":"../../resources/clock.png"}}'></image>
-    <view class='content_bg'>
-      <view class='date-bg'>
-        <view class='date'>{{item.displayctime}}</view>
-        <view class='dura {{item.isSelected?"dura_on":""}}'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
+  <!-- <wxs module='dkitem'>
+    var ctime = function(ctime) {
+      return ctime.split(' ')[0]
+    }
+    module.exports.ctime = ctime
+  </wxs> -->
+
+  <view class='dkitem-bg {{item.isSelected?"dkitem-bg_on":""}}' bindtap='onClickItem' data-index='{{index}}'>
+    <image class='dkitem-icon' src='{{item.isSelected?"../../resources/clock_on.png":"../../resources/clock.png"}}'></image>
+    <view class='dkitem-content-bg'>
+      <view class='dkitem-date-bg'>
+        <view class='dkitem-date'>{{item.displayctime}}</view>
+        <view class='dkitem-duration {{item.isSelected?"dkitem-duration_on":""}}'>{{item.displayduration.hours}}小时{{item.displayduration.minutes}}分{{item.displayduration.seconds}}秒</view>
       </view>
-      <view>
-        <text class='content {{item.isSelected ? "":"content_ellipsis"}}'>{{item.record}}</text>
+			<view wx:if='{{item.isSelected}}' class='dkitem-full_date'>{{item.displayfullctime}}</view>
+      <view class='dkitem-content-bg'>
+        <text class='dkitem-content {{item.isSelected ? "":"dkitem-content_ellipsis"}}'>{{item.record}}</text>
       </view>
+    </view>
+  </view>
+  <view wx:if='{{item.isSelected}}' class='dkitem-btns'>
+    <view class='dkitem-btn-bg' bindtap='onClickShare' data-id='{{item.id}}'>
+      <image id='share' class='dkitem-btn-img' src='../../resources/share.png'></image>
+      <view class='dkitem-btn-text'>分享</view>
+      <button class='dkitem-share-btn' open-type='share'>s</button>
+    </view>
+
+    <view class='dkitem-btn-bg' bindtap='onClickDelete' data-id='{{item.id}}'>
+      <image class='dkitem-btn-img' src='../../resources/delete.png'></image>
+      <view class='dkitem-btn-text'>删除</view>
     </view>
 
   </view>
-  <view wx:if='{{item.isSelected}}' class='btns'>
-    <view class='btn-bg' bindtap='onClickShare'>
-      <image id='share' class='btn_img' src='../../resources/share.png'></image>
-      <view class='btn_text'>分享</view>
-    </view>
-    <view class='btn-bg' bindtap='onClickDelete' data-id='{{item.id}}'>
-      <image class='btn_img' src='../../resources/delete.png'></image>
-      <view class='btn_text'>删除</view>
-    </view>
 
-  </view>
+
 
 </template>

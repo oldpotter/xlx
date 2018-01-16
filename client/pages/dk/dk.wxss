@@ -49,11 +49,11 @@
 .navi {
   font-size: 28rpx;
   margin: 30rpx;
-	color:#ab48ab;
+  color: #ab48ab;
 }
 
 .recent-list {
-	padding: 0 30rpx;
+  padding: 0 30rpx;
 }
 
 .prompt-bg {
@@ -71,19 +71,26 @@
   display: block;
 }
 
-.prompt_close{
-	width: 50rpx;
-	height: 50rpx;
-	float: right;
-	margin: 30rpx 30rpx;
-}
-.prompt_title{
-	margin-top: 80rpx;
-	margin-left: 30rpx;
-	font-size: 34rpx;
+.prompt_close {
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+  margin: 30rpx 30rpx;
 }
 
-.prompt_duration{
-	font-size: 60rpx;
-	margin-left: 30rpx;
+.prompt_title {
+  margin-top: 80rpx;
+  margin-left: 30rpx;
+  font-size: 34rpx;
 }
+
+.prompt_duration {
+  font-size: 60rpx;
+  margin-left: 30rpx;
+}
+
+.prompt-text {
+  background: white;
+	margin: 80rpx 30rpx;
+}
+

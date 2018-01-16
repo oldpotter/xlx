@@ -93,9 +93,9 @@ Page({
 		}
 	},
 
-	onClickClose(){
+	onClickClose() {
 		this.setData({
-			showDialog:false
+			showDialog: false
 		})
 	},
 
@@ -120,32 +120,96 @@ Page({
 			wx.showLoading({
 				title: '请稍后',
 			})
-			util.handleUUID()
-				.then(res => util.pRequest(`${config.service.getDKsUrl}?uuid=${res}&num=5&page=1`))
+			
+			util.pGetUserInfo()
 				.then(res => {
-					if (res.data.MESSAGE == 'SUCCESS') {
-						// console.log(res)
-						let list = res.data.DAKA
-						list
-							.forEach(item => {
-								const diff = moment().diff(item.ctime)
-								item.displayctime = diff < 60000 ? '刚刚' : moment(item.ctime).fromNow()
-								item.displayduration = {
-									hours: moment.duration(item.duration).hours(),
-									minutes: moment.duration(item.duration).minutes(),
-									seconds: moment.duration(item.duration).seconds(),
-								}
-
-							})
-						_this.setData({ list })
-						wx.hideLoading()
+					let result
+					if (res.errMsg == 'getUserInfo:ok') {
+						result = res
 					}
+					util.handleUUID(result)
+						.then(res => util.pRequest(`${config.service.getDKsUrl}?uuid=${res}&num=5&page=1`))
+						.then(res => {
+							if (res.data.MESSAGE == 'SUCCESS') {
+								let list = res.data.DAKA
+								list
+									.forEach(item => {
+										const diff = moment().diff(item.ctime)
+										item.displayctime = diff < 60000 ? '刚刚' : moment(item.ctime).fromNow()
+										item.displayduration = {
+											hours: moment.duration(item.duration).hours(),
+											minutes: moment.duration(item.duration).minutes(),
+											seconds: moment.duration(item.duration).seconds(),
+										}
+
+									})
+								_this.setData({ list })
+								wx.hideLoading()
+							}
+
+						})
+
 
 				})
+
+
 		}
 		catch (err) {
 			wx.hideLoading()
 			console.error(err)
+		}
+	},
+
+	onClickItem(event) {
+		const index = event.currentTarget.dataset.index
+		if (index == this.selectedIndex) {
+			return
+		}
+		let param = `list[${index}].isSelected`
+		this.setData({
+			[param]: true
+		})
+		if (this.selectedIndex != undefined) {
+			param = `list[${this.selectedIndex}].isSelected`
+			this.setData({
+				[param]: false
+			})
+		}
+		this.selectedIndex = index
+	},
+
+	onClickDelete(event) {
+		const _this = this
+		const id = event.currentTarget.dataset.id
+		wx.showActionSheet({
+			itemList: ['删除'],
+			itemColor: 'red',
+			success: function (res) {
+				util.handleUUID()
+					.then(res => util.pRequest(`${config.service.deleteDKUrl}?uuid=${res}&id=${id}`))
+					.then(res => {
+						if (res.data.MESSAGE == 'SUCCESS') {
+							wx.showToast({
+								title: '删除成功',
+							})
+							let list = _this.data.list.filter(item => item.id != id)
+							_this.setData({ list })
+						} else {
+							console.error('删除失败!!')
+						}
+					})
+			},
+			fail: function (res) { },
+			complete: function (res) { },
+		})
+	},
+
+	
+
+	onShareAppMessage(messages) {
+		const id = this.data.list[this.selectedIndex].id
+		return {
+			path: `/pages/share/share?id=${id}`
 		}
 	},
 

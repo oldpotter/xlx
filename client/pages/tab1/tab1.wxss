@@ -68,29 +68,30 @@
   height: auto;
 }
 
-
-.one{
-	color: lightgray;
-	text-align: center;
-}
-.two{
-	font-weight:bold;
-	font-size: 16px;
+.one {
+  color: lightgray;
+  text-align: center;
 }
 
-.three{
-
+.two {
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.four{
-	font-weight:bold;
-	font-size: 16px;
+.three {
+  color: #6b6b6b;
 }
 
-.five{
-	font-style:italic;
+.four {
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.six{
-	float: right;
+.five {
+  font-style: italic;
+  color: #6b6b6b;
+}
+
+.six {
+  float: right;
 }

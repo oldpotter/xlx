@@ -5,7 +5,7 @@
  * -1:上传失败
  */
 class DkItem {
-	constructor(duration, date, content,state,tsDuration,tsDate) {
+	constructor(duration, date, content, state, tsDuration, tsDate) {
 		this.duration = duration
 		this.date = date
 		this.content = content || '修行打卡，滴！'
@@ -15,4 +15,5 @@ class DkItem {
 	}
 }
 
-module.exports = DkItem
+
+module.exports = DkItem 

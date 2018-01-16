@@ -1,4 +1,4 @@
-.bg {
+.dkitem-bg {
   /* border: 1rpx solid lightgray; */
   margin-top: 30rpx;
   box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.09);
@@ -7,17 +7,18 @@
   display: flex;
   flex-direction: row;
 }
-.bg_on{
-	background: #e9e4f5;
+
+.dkitem-bg_on {
+  background: #e9e4f5;
 }
 
-.icon {
+.dkitem-icon {
   margin: 30rpx 30rpx;
   width: 30rpx;
   height: 30rpx;
 }
 
-.content_bg {
+.dkitem-content-bg {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -25,57 +26,66 @@
   align-items: stretch;
 }
 
-.date {
-  /* background: salmon; */
+.dkitem-duration_on {
+  color: #ab48ab;
 }
 
-.dura_on{
-	color: #ab48ab;
+.dkitem-duration {
+  /* font-size: 30rpx; */
 }
 
-.dura {
-  font-size: 36rpx;
+.dkitem-date{
+	/* font-size: 30rpx; */
 }
 
-.date-bg {
+.dkitem-date-bg {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.content {
-  color: lightgray;
+.dkitem-content {
+  
 }
 
-.content_ellipsis {
+.dkitem-content_ellipsis {
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+	color: darkgray;
 }
 
-.btns{
-	margin-top: 20rpx;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
+.dkitem-btns {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
-.btn_img {
+.dkitem-btn-img {
   width: 40rpx;
   height: 40rpx;
-	margin-right: 20rpx;
-}
-.btn-bg{
-	display: flex;
-	flex-direction: row;
+  margin-right: 20rpx;
 }
 
-.btn_text{
-	color: lightgray;
-	margin-right: 50rpx;
+.dkitem-btn-bg {
+  display: flex;
+  flex-direction: row;
 }
 
+.dkitem-btn-text {
+  color: lightgray;
+  margin-right: 50rpx;
+}
+
+.dkitem-share-btn {
+  position: absolute;
+	width: 120rpx;
+	height: 40rpx;
+	opacity: 0;
+	/* background: salmon; */
+}

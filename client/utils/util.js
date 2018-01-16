@@ -45,7 +45,23 @@ function pRequest(url, data, method = 'GET', header = {}, dataType = 'json') {
 	})
 }
 
-function handleUUID() {
+function pGetUserInfo() {
+	return new Promise((resolve, reject) => {
+		wx.getUserInfo({
+			withCredentials: true,
+			lang: '',
+			success: function (res) {
+				resolve(res)
+			},
+			fail: function (res) {
+				resolve(res)
+			},
+			complete: function (res) { },
+		})
+	})
+}
+
+function handleUUID(result) {
 	const _this = this
 	return new Promise((resolve, reject) => {
 		let uuid = wx.getStorageSync('uuid')
@@ -55,7 +71,13 @@ function handleUUID() {
 		} else {
 			wx.login({
 				success: function (res) {
-					_this.pRequest(`${config.service.loginUrl}?jsCode=${res.code}`)
+					let url = `${config.service.loginUrl}?jsCode=${res.code}`
+					if (result) {
+
+						url = url + `&encryptedData=${result.encryptedData}&iv=${result.iv}`
+					}
+					console.log('url:', url)
+					_this.pRequest(url)
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
 								uuid = res.data.UUID
@@ -78,5 +100,6 @@ module.exports = {
 	getTimeFromNow,
 	getFormatTime,
 	pRequest,
-	handleUUID
+	handleUUID,
+	pGetUserInfo
 }

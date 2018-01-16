@@ -24,6 +24,10 @@
 			"current": -1,
 			"list": []
 		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 5,
 			"list": [
@@ -62,6 +66,13 @@
 					"name": "打卡",
 					"pathName": "pages/dk/dk",
 					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "share",
+					"pathName": "pages/share/share",
+					"query": "id=iMbEby",
+					"scene": "1007"
 				}
 			]
 		}

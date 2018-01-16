@@ -1,3 +1,4 @@
+
 const config = require('../../config.js')
 const util = require('../../utils/util.js')
 const moment = require('../../plugins/moment.min.js')
@@ -10,6 +11,10 @@ Page({
 	},
 
 	onLoad() {
+		util.handleUUID()
+			.then(res => util.pRequest(`${config.service.getUserInfoUrl}?uuid=${res}`))
+			.then(res => console.log(res))
+
 		wx.getShareInfo({
 			shareTicket: 'true',
 			success: function (res) { },
@@ -53,8 +58,10 @@ Page({
 						list.forEach(item => {
 							item.displayctime = moment(item.ctime).format('YYYY年MM月DD日 HH:mm')
 							const diff = moment().diff(item.ctime)
+							item.displayfullctime = item.displayctime
 							const str = diff < 60000 ? '刚刚' : moment(item.ctime).fromNow()
-							item.displayctime = str + ' ' + item.displayctime
+							item.displayctime = str
+
 							item.displayduration = {
 								hours: moment.duration(item.duration).hours(),
 								minutes: moment.duration(item.duration).minutes(),
@@ -80,12 +87,22 @@ Page({
 		}
 	},
 
-	onClickItem(event){
+	onClickItem(event) {
 		const index = event.currentTarget.dataset.index
-		const param = `list[${index}].isSelected`
+		if (index == this.selectedIndex) {
+			return
+		}
+		let param = `list[${index}].isSelected`
 		this.setData({
-			[param]:true
+			[param]: true
 		})
+		if (this.selectedIndex != undefined) {
+			param = `list[${this.selectedIndex}].isSelected`
+			this.setData({
+				[param]: false
+			})
+		}
+		this.selectedIndex = index
 	},
 
 	onClickDelete(event) {
@@ -114,22 +131,13 @@ Page({
 		})
 	},
 
-	onClickShare(event){
-		console.log('share')
-	},
 
 	onShareAppMessage(messages) {
-		wx.showShareMenu({
-			withShareTicket: true,
-			success: function (res) { },
-			fail: function (res) { },
-			complete: function (res) { },
-		})
-		const _this = this
+		const id = this.data.list[this.selectedIndex].id
 		return {
-			path: `/pages/dk/list?share=true`,
-			success(res) { },
-			fail(res) { },
+			path: `/pages/share/share?id=${id}`
 		}
 	},
+
+
 })
