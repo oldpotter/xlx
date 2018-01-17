@@ -1,15 +1,16 @@
-<view class='page'>
-	<view class='page-bg'>
-		<view class='card-bg'>
-			<!-- <view class='userinfo'>
-				<image></image>
-				<text>xxx</text>
-			</view> -->
-			<view class='title'>练功打卡</view>
-			<view class='duration'>{{displayduration.hours}}小时{{displayduration.minutes}}分{{displayduration.seconds}}秒</view>
-			<view class='content'>{{content}}</view>
-			<view class='date'>发表于{{displaydata}}</view>
-			<view class='button'>我也打卡</view>
-		</view>
-	</view>
+<view class='page-bg'>
+  <view class='card-bg'>
+    <view class='userinfo'>
+      <image class='avatar' src='{{userinfo.avatarUrl}}'></image>
+      <text class='nickname'>{{userinfo.nickName}}</text>
+    </view>
+    <view class='title'>练功打卡</view>
+    <view class='duration'>{{displayduration.hours}}小时{{displayduration.minutes}}分{{displayduration.seconds}}秒</view>
+    <view class='content'>“{{content}}”</view>
+    <view class='date'>发表于{{displaydata}}</view>
+    <view class='button' bindtap='onClickBtn'>
+      <text class='button_text'>我也打卡</text>
+    </view>
+  </view>
+   <image class='page-bg_img' mode='widthFix' src='../../resources/share-bg.png'></image>  
 </view>

@@ -19,6 +19,7 @@ Page({
 
 	onShow() {
 		this.getData()
+		this.selectedIndex = undefined
 	},
 
 	//点击“开始”亦或“结束”按钮
@@ -45,6 +46,7 @@ Page({
 			dkItem.duration = this.data.duration
 			dkItem.tsDuration = moment().diff(this.data.start)
 			dkItem.tsDate = moment().format('x')
+			dkItem.date = moment().format('YYYY-MM-DD')
 
 			this.setData({
 				running: false,
@@ -77,6 +79,7 @@ Page({
 								_this.setData({
 									showDialog: false
 								})
+								_this.selectedIndex = undefined
 								wx.showToast({
 									title: '保存成功',
 								})
@@ -99,7 +102,6 @@ Page({
 		})
 	},
 
-
 	onCancel() {
 		this.setData({
 			showDialog: false
@@ -120,7 +122,7 @@ Page({
 			wx.showLoading({
 				title: '请稍后',
 			})
-			
+
 			util.pGetUserInfo()
 				.then(res => {
 					let result
@@ -141,12 +143,14 @@ Page({
 											minutes: moment.duration(item.duration).minutes(),
 											seconds: moment.duration(item.duration).seconds(),
 										}
-
 									})
 								_this.setData({ list })
 								wx.hideLoading()
+								
+							}else{
+								wx.removeStorageSync('uuid')
+								setTimeout(()=>_this.getData(),1000)
 							}
-
 						})
 
 
@@ -204,12 +208,13 @@ Page({
 		})
 	},
 
-	
-
 	onShareAppMessage(messages) {
 		const id = this.data.list[this.selectedIndex].id
+		const uuid = wx.getStorageSync('uuid')
+		console.log('uuid:', uuid)
+		console.log('id:', id)
 		return {
-			path: `/pages/share/share?id=${id}`
+			path: `/pages/share/share?id=${id}&uuid=${uuid}`
 		}
 	},
 

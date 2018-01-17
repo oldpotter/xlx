@@ -9,6 +9,10 @@
   background: #e9e4f5;
 }
 
+.top-bg_recording {
+  background: #f5e4e8;
+}
+
 .clock {
   margin-top: 100rpx;
   font-size: 128rpx;
@@ -27,6 +31,10 @@
   align-items: center;
   background: #ab48ab;
   box-shadow: 0px 7px 67px 0px rgba(94, 68, 97, 0.22);
+}
+
+.btn_recording {
+  background: #e84c4c;
 }
 
 .btn-text {
@@ -91,6 +99,21 @@
 
 .prompt-text {
   background: white;
-	margin: 80rpx 30rpx;
+  /* margin: 80rpx 30rpx; */
+  width: 100%;
+	margin-top: 60rpx;
 }
 
+.prompt-btn {
+  background: #ab48ab;
+  color: white;
+  margin: 60rpx;
+}
+
+.prompt-date{
+	float: right;
+	font-size: 26rpx;
+	color: #262226;
+	opacity: 0.5;
+	margin-top: -50rpx;
+}

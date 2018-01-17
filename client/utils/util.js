@@ -73,11 +73,9 @@ function handleUUID(result) {
 				success: function (res) {
 					let url = `${config.service.loginUrl}?jsCode=${res.code}`
 					if (result) {
-
-						url = url + `&encryptedData=${result.encryptedData}&iv=${result.iv}`
+						url = url + `&encryptedData=${encodeURIComponent(result.encryptedData)}&iv=${encodeURIComponent(result.iv)}`
 					}
-					console.log('url:', url)
-					_this.pRequest(url)
+					_this.pRequest(url,{},'POST')
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
 								uuid = res.data.UUID
