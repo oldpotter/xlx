@@ -3,13 +3,31 @@
   margin-top: 30rpx;
   box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.09);
   border-radius: 20rpx;
-  padding: 30rpx;
+   padding: 30rpx 30rpx 30rpx 0; 
   display: flex;
   flex-direction: row;
+  /* background: saddlebrown; */
 }
 
 .dkitem-bg_on {
   background: #e9e4f5;
+  animation: expend 0.1s;
+}
+
+.dkitem-bg-hover {
+  background: #e9e4f5;
+}
+
+@keyframes expend {
+  from {
+    height: 50rpx;
+    opacity: 0;
+  }
+
+  to {
+    height: auto;
+    opacity: 1;
+  }
 }
 
 .dkitem-icon {
@@ -34,8 +52,8 @@
   /* font-size: 30rpx; */
 }
 
-.dkitem-date{
-	/* font-size: 30rpx; */
+.dkitem-date {
+  /* font-size: 30rpx; */
 }
 
 .dkitem-date-bg {
@@ -46,7 +64,6 @@
 }
 
 .dkitem-content {
-  
 }
 
 .dkitem-content_ellipsis {
@@ -56,7 +73,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-	color: darkgray;
+  color: darkgray;
 }
 
 .dkitem-btns {
@@ -64,6 +81,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-bottom: 30rpx;
 }
 
 .dkitem-btn-img {
@@ -78,14 +96,14 @@
 }
 
 .dkitem-btn-text {
-  color: lightgray;
+  color: #999;
   margin-right: 50rpx;
 }
 
 .dkitem-share-btn {
   position: absolute;
-	width: 120rpx;
-	height: 40rpx;
-	opacity: 0;
-	/* background: salmon; */
+  width: 120rpx;
+  height: 40rpx;
+  opacity: 0;
+  /* background: salmon; */
 }

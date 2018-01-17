@@ -10,10 +10,10 @@ Page({
 		page: 1,
 	},
 
-	onLoad() {
-		util.handleUUID()
-			.then(res => util.pRequest(`${config.service.getUserInfoUrl}?uuid=${res}`))
-			.then(res => console.log(res))
+	onShow() {
+		// util.handleUUID()
+		// 	.then(res => util.pRequest(`${config.service.getUserInfoUrl}?uuid=${res}`))
+		// 	.then(res => console.log(res))
 
 		wx.getShareInfo({
 			shareTicket: 'true',
@@ -21,8 +21,10 @@ Page({
 			fail: function (res) { },
 			complete: function (res) { },
 		})
+		
 		this.getData()
 	},
+
 
 	onReachBottom() {
 		if (this.data.noMoreData) {
@@ -110,7 +112,7 @@ Page({
 		const id = event.currentTarget.dataset.id
 		wx.showActionSheet({
 			itemList: ['删除'],
-			itemColor: 'red',
+			itemColor: '#FF0000',
 			success: function (res) {
 				util.handleUUID()
 					.then(res => util.pRequest(`${config.service.deleteDKUrl}?uuid=${res}&id=${id}`))
@@ -121,6 +123,7 @@ Page({
 							})
 							let list = _this.data.list.filter(item => item.id != id)
 							_this.setData({ list })
+							_this.selectedIndex = undefined
 						} else {
 							console.error('删除失败!!')
 						}
@@ -131,13 +134,11 @@ Page({
 		})
 	},
 
-
 	onShareAppMessage(messages) {
 		const id = this.data.list[this.selectedIndex].id
 		return {
 			path: `/pages/share/share?id=${id}`
 		}
 	},
-
 
 })

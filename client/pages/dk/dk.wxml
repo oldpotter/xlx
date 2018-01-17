@@ -28,8 +28,8 @@
   <image class='prompt_close' src='../../resources/close.png' bindtap='onClickClose'></image>
   <view class='prompt_title'>打卡时长</view>
   <view class='prompt_duration'>{{dkItem.duration.hours}}:{{dkItem.duration.minutes}}:{{dkItem.duration.seconds}}</view>
-	<view class='prompt-date'>{{dkItem.date}}</view>
-  <textarea class='prompt-text' show-confirm-bar='' bindinput='onInput' placeholder='说点感受' focus='{{focus&&showDialog}}' />
+  <view class='prompt-date'>{{dkItem.date}}</view>
+  <textarea class='prompt-text' maxlength='140' show-confirm-bar='' bindinput='onInput' placeholder='说点感受（140字以内）' focus='{{focus&&showDialog}}' />
   <button class='prompt-btn' bindtap='onConfirm'>确定</button>
 </view>
 

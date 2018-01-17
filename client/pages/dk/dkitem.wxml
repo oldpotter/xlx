@@ -6,7 +6,7 @@
     module.exports.ctime = ctime
   </wxs> -->
 
-  <view class='dkitem-bg {{item.isSelected?"dkitem-bg_on":""}}' bindtap='onClickItem' data-index='{{index}}'>
+  <view class='dkitem-bg {{item.isSelected?"dkitem-bg_on":""}}' hover-class='dkitem-bg-hover' bindtap='onClickItem' data-index='{{index}}'>
     <image class='dkitem-icon' src='{{item.isSelected?"../../resources/clock_on.png":"../../resources/clock.png"}}'></image>
     <view class='dkitem-content-bg'>
       <view class='dkitem-date-bg'>
