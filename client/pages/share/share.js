@@ -19,6 +19,13 @@ Page({
 					_this.setData({
 						userinfo: res.data
 					})
+				}else{
+					_this.setData({
+						userinfo:{
+							avatarUrl:'../../resources/default_avatar.png',
+							nickName:'匿名',
+						}
+					})
 				}
 				return util.pRequest(`${config.service.getSingalDKUrl}?id=${options.id}`)
 			})

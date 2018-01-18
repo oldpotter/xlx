@@ -102,6 +102,7 @@
   /* margin: 80rpx 30rpx; */
   width: 100%;
 	margin-top: 60rpx;
+	position: relative;
 }
 
 .prompt-btn {
@@ -113,6 +114,7 @@
 .prompt-date{
 	float: right;
 	font-size: 26rpx;
+	margin-right: 30rpx;
 	color: #262226;
 	opacity: 0.5;
 	margin-top: -50rpx;

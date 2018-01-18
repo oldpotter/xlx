@@ -187,7 +187,7 @@ Page({
 		const id = event.currentTarget.dataset.id
 		wx.showActionSheet({
 			itemList: ['删除'],
-			itemColor: 'red',
+			itemColor: '#FF0000',
 			success: function (res) {
 				util.handleUUID()
 					.then(res => util.pRequest(`${config.service.deleteDKUrl}?uuid=${res}&id=${id}`))
@@ -198,6 +198,7 @@ Page({
 							})
 							let list = _this.data.list.filter(item => item.id != id)
 							_this.setData({ list })
+							_this.selectedIndex = undefined
 						} else {
 							console.error('删除失败!!')
 						}
@@ -214,7 +215,7 @@ Page({
 		console.log('uuid:', uuid)
 		console.log('id:', id)
 		return {
-			path: `/pages/share/share?id=${id}&uuid=${uuid}`
+			path: `/pages/share/share?id=${id}&uuid=${uuid}`,
 		}
 	},
 
