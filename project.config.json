@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -71,7 +71,7 @@
 					"id": 6,
 					"name": "share",
 					"pathName": "pages/share/share",
-					"query": "id=R3ArEj&uuid=fe4bce53-721d-4010-87ba-db64fd7ddc52",
+					"query": "id=UZZbAj&uuid=78d8c5e2-5a21-4b97-86f9-466ebe85ce2a",
 					"scene": "1007"
 				}
 			]
