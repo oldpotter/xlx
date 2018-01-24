@@ -1,1 +1,5 @@
-{}
+{
+	"usingComponents": {
+		"dklist": "../../components/dklist/dklist"
+	}
+}

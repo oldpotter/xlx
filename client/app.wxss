@@ -2,6 +2,12 @@
 @import '/plugins/weui-wxss/dist/app.wxss';
 @import '/plugins/zanui-weapp/dist/index.wxss';
 
+.xlx-list-container{
+	padding: 30rpx;
+	/* background: saddlebrown; */
+}
+
+
 .container {
   height: 100%;
   display: flex;

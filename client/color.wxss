@@ -1,0 +1,12 @@
+/* color */
+.xlx-color-gray{
+	color: #929292;
+}
+
+.xlx-color-black{
+	color: #262226;
+}
+
+.xlx-color-purple{
+	color: #ab48ab;
+}

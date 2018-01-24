@@ -1,7 +1,1 @@
 /* pages/test/test.wxss */
-@import '../../plugins/wxParse/wxParse.wxss';
-
-.test{
-	font-size: 33px;
-	color: salmon;
-}

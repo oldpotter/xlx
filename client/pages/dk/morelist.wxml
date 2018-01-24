@@ -1,0 +1,4 @@
+<!--pages/dk/morelist.wxml-->
+<view class='xlx-list-container'>
+	<dklist url='{{url}}' page='{{page}}'/>
+</view>
