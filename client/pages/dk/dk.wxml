@@ -11,15 +11,12 @@
   <view class='list_title-bg'>
     <view class='list-title'>打卡记录</view>
     <view class='navi'>
-      <navigator url="list" class="weui-agree__link navi">更多</navigator>
+      <navigator url="morelist" class="weui-agree__link navi">更多</navigator>
     </view>
   </view>
 
   <view class='recent-list'>
-    <view wx:for='{{list}}' wx:key='id'>
-      <template is='dkitem' data='{{item,index}}' />
-    </view>
-
+    <dklist url='{{url}}' page='{{page}}' num='5'/>
   </view>
 
 </view>

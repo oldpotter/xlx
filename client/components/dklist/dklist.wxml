@@ -1,0 +1,17 @@
+<!--components/dklist/dklist.wxml-->
+<view class='dklist-bg' wx:for='{{listData}}' wx:key='id'>
+  <dkitem index='{{index}}' dkid='{{item.id}}' is-selected='{{item.isSelected}}' displayctime='{{item.displayctime}}' displayduration='{{item.displayduration}}' displayfullctime='{{item.displayfullctime}}' record='{{item.record}}' bind:onclickdkitem='onClickDkItem'
+    bind:onclickdkdelete='onClickDkDelete' />
+</view>
+<view wx:if='{{isLoading}}' class="weui-loadmore">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载</view>
+</view>
+
+<view wx:if='{{listData.length==0}}' class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有数据</view>
+</view>
+
+<view wx:if='{{noMoreData}}' class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+</view>

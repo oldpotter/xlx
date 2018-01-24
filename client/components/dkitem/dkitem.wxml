@@ -1,0 +1,27 @@
+<!--components/dkitem/dkitem.wxml-->
+<view class='dkitem-bg {{isSelected?"dkitem-bg_on":""}}' hover-class='dkitem-bg-hover' bindtap='onClickDkItem' data-index='{{index}}'>
+  <image class='dkitem-icon' src='{{isSelected?"../../resources/clock_on.png":"../../resources/clock.png"}}'></image>
+  <view class='dkitem-content-bg'>
+    <view class='dkitem-date-bg'>
+      <view class='dkitem-date xlx-color-black'>{{displayctime}}</view>
+      <view class='dkitem-duration xlx-color-black {{isSelected?"xlx-color-purple":""}}'>{{displayduration.hours}}小时{{displayduration.minutes}}分{{displayduration.seconds}}秒</view>
+    </view>
+    <view wx:if='{{isSelected}}' class='dkitem-full_date'>{{displayfullctime}}</view>
+    <view class='dkitem-content-bg'>
+        <view class='dkitem-content xlx-color-gray {{isSelected? "xlx-color-black":"dkitem-content_ellipsis"}}'>{{record}}</view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{isSelected}}' class='dkitem-btns'>
+  <view class='dkitem-btn-bg'>
+    <image id='share' class='dkitem-btn-img' src='../../resources/share.png'></image>
+    <view class='dkitem-btn-text xlx-color-gray'>分享</view>
+    <button class='dkitem-share-btn' open-type='share'></button>
+  </view>
+
+  <view class='dkitem-btn-bg' bindtap='onClickDkDelete' data-dkid='{{dkid}}'>
+    <image class='dkitem-btn-img' src='../../resources/delete.png'></image>
+    <view class='dkitem-btn-text xlx-color-gray'>删除</view>
+  </view>
+
+</view>

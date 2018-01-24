@@ -15,12 +15,10 @@ Page({
 		dkItem: new DkItem(),
 		list: undefined,
 		focus: true,
+		url: config.service.getDKsUrl,
+		page: 1,
 	},
 
-	onShow() {
-		this.getData()
-		this.selectedIndex = undefined
-	},
 
 	//点击“开始”亦或“结束”按钮
 	onClickBtn() {
@@ -71,8 +69,8 @@ Page({
 		try {
 			util.handleUUID()
 				.then(uuid => {
-					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${_this.data.dkItem.content}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
-					// console.log('url:', url)
+					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${encodeURIComponent(_this.data.dkItem.content)}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
+					console.log('url:', url)
 					util.pRequest(url, 'POST')
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
@@ -85,9 +83,8 @@ Page({
 								})
 								_this.getData()
 							} else {
-								console.error('保存失败....')
+								console.error('保存失败....:',res)
 							}
-
 						})
 				})
 		} catch (err) {
@@ -116,109 +113,11 @@ Page({
 		// console.log(this.data.dkItem.content)
 	},
 
-	getData() {
-		try {
-			const _this = this
-			wx.showLoading({
-				title: '请稍后',
-			})
-
-			util.pGetUserInfo()
-				.then(res => {
-					let result
-					if (res.errMsg == 'getUserInfo:ok') {
-						result = res
-					}
-					util.handleUUID(result)
-						.then(res => util.pRequest(`${config.service.getDKsUrl}?uuid=${res}&num=5&page=1`))
-						.then(res => {
-							if (res.data.MESSAGE == 'SUCCESS') {
-								let list = res.data.DAKA
-								list
-									.forEach(item => {
-										const diff = moment().diff(item.ctime)
-										item.displayctime = diff < 60000 ? '刚刚' : moment(item.ctime).fromNow()
-										item.displayduration = {
-											hours: moment.duration(item.duration).hours(),
-											minutes: moment.duration(item.duration).minutes(),
-											seconds: moment.duration(item.duration).seconds(),
-										}
-									})
-								_this.setData({ list })
-								wx.hideLoading()
-								
-							}else{
-								wx.removeStorageSync('uuid')
-								setTimeout(()=>_this.getData(),1000)
-							}
-						})
-
-
-				})
-
-
-		}
-		catch (err) {
-			wx.hideLoading()
-			console.error(err)
-		}
-	},
-
-	onClickItem(event) {
-		const index = event.currentTarget.dataset.index
-		if (index == this.selectedIndex) {
-			return
-		}
-		let param = `list[${index}].isSelected`
-		this.setData({
-			[param]: true
-		})
-		if (this.selectedIndex != undefined) {
-			param = `list[${this.selectedIndex}].isSelected`
-			this.setData({
-				[param]: false
-			})
-		}
-		this.selectedIndex = index
-	},
-
-	onClickDelete(event) {
-		const _this = this
-		const id = event.currentTarget.dataset.id
-		wx.showActionSheet({
-			itemList: ['删除'],
-			itemColor: '#FF0000',
-			success: function (res) {
-				util.handleUUID()
-					.then(res => util.pRequest(`${config.service.deleteDKUrl}?uuid=${res}&id=${id}`))
-					.then(res => {
-						if (res.data.MESSAGE == 'SUCCESS') {
-							wx.showToast({
-								title: '删除成功',
-							})
-							let list = _this.data.list.filter(item => item.id != id)
-							_this.setData({ list })
-							_this.selectedIndex = undefined
-						} else {
-							console.error('删除失败!!')
-						}
-					})
-			},
-			fail: function (res) { },
-			complete: function (res) { },
-		})
-	},
-
 	onShareAppMessage(messages) {
-		const id = this.data.list[this.selectedIndex].id
-		const uuid = wx.getStorageSync('uuid')
-		console.log('uuid:', uuid)
-		console.log('id:', id)
 		return {
-			path: `/pages/share/share?id=${id}&uuid=${uuid}`,
+			path: `/pages/share/share?id=${app.selectedDkId}`
 		}
 	},
-
 	//工具方法
 	preciseDiff(m1, m2, returnValueObject) {
 		var firstDateWasLater;
