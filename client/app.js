@@ -1,6 +1,6 @@
 const moment = require('./plugins/moment.min.js')
 App({
-	version: `v1.7.0`,
+	version: `v1.7.1`,
 
 	onLaunch() {
 		moment.locale('zh', {
