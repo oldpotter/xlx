@@ -2,6 +2,7 @@ const moment = require('../../plugins/moment.min.js')
 const DkItem = require('../../models/dkitem.js')
 const config = require('../../config.js')
 const util = require('../../utils/util.js')
+const app = getApp()
 Page({
 	data: {
 		start: undefined,//开始时间
@@ -16,9 +17,27 @@ Page({
 		list: undefined,
 		focus: true,
 		url: config.service.getDKsUrl,
-		page: 1,
+		toReload: false,
+		userInfo: undefined
 	},
 
+	onReady() {
+		const _this = this
+		wx.getUserInfo({
+			success: function (res) {
+				if (res.errMsg == 'getUserInfo:ok') {
+					_this.setData({
+						userInfo: res,
+					})
+				}
+			},
+			complete() {
+				_this.setData({
+					toReload: !_this.data.toReload
+				})
+			}
+		})
+	},
 
 	//点击“开始”亦或“结束”按钮
 	onClickBtn() {
@@ -70,7 +89,7 @@ Page({
 			util.handleUUID()
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${encodeURIComponent(_this.data.dkItem.content)}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
-					console.log('url:', url)
+					// console.log('url:', url)
 					util.pRequest(url, 'POST')
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
@@ -81,9 +100,12 @@ Page({
 								wx.showToast({
 									title: '保存成功',
 								})
-								_this.getData()
+								_this.setData({
+									toReload: !_this.data.toReload
+								})
+								console.log(_this.data.toReload)
 							} else {
-								console.error('保存失败....:',res)
+								console.error('保存失败....:', res)
 							}
 						})
 				})
@@ -114,8 +136,9 @@ Page({
 	},
 
 	onShareAppMessage(messages) {
+		// console.log(app.selectedDkId)
 		return {
-			path: `/pages/share/share?id=${app.selectedDkId}`
+			path: `/pages/share/share?id=${app.selectedDkId}&uuid=${wx.getStorageSync('uuid')}`
 		}
 	},
 	//工具方法

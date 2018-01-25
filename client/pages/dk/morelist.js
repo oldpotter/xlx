@@ -4,6 +4,13 @@ Page({
 	data: {
 		url: config.service.getDKsUrl,
 		page:1,
+		toReload:undefined,
+	},
+
+	onReady(){
+		this.setData({
+			toReload:true,
+		})
 	},
 
 	onReachBottom() {
@@ -21,7 +28,7 @@ Page({
 
 	onShareAppMessage(messages) {
 		return {
-			path: `/pages/share/share?id=${app.selectedDkId}`
+			path: `/pages/share/share?id=${app.selectedDkId}&uuid=${wx.getStorageSync('uuid')}`
 		}
 	},
 })

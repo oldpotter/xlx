@@ -1,5 +1,4 @@
 <!--pages/dk/dk.wxml-->
-<import src='./dkitem.wxml' />
 <view class='page'>
   <view class='top-bg {{running?"top-bg_recording":""}}'>
     <view class='clock'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
@@ -16,7 +15,7 @@
   </view>
 
   <view class='recent-list'>
-    <dklist url='{{url}}' page='{{page}}' num='5'/>
+    <dklist url='{{url}}' num='5' to-reload='{{toReload}}' user-info='{{userInfo}}'/>
   </view>
 
 </view>
