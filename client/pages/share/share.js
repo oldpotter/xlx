@@ -14,7 +14,7 @@ Page({
 		const _this = this
 		util.pRequest(`${config.service.getUserInfoUrl}?uuid=${options.uuid}`)
 			.then(res => {
-				// console.log(res.data)
+				console.log(res.data)
 				if (res.data.MESSAGE == 'SUCCESS') {
 					_this.setData({
 						userinfo: res.data

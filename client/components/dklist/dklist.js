@@ -8,14 +8,19 @@ Component({
 	properties: {
 		url: String,
 		num: {
-			type:Number,
-			value:10,
+			type: Number,
+			value: 10,
 		},
 		page: {
 			type: Number,
-			value:1,
+			value: 1,
 			observer: '_onPageChange'
 		},
+		toReload: {
+			type: Number,
+			observer: '_reload'
+		},
+		userInfo:Object,
 	},
 
 	data: {
@@ -25,16 +30,31 @@ Component({
 	},
 
 	methods: {
+		_reload() {
+			// console.log('reload')
+			this.setData({
+				listData: []
+			})
+			this._getData()
+		},
+
+		_onPageChange(){
+			if(this.data.listData){
+				this._getData()
+			}
+		},
+
 		_getData() {
+			// console.log('getData')
 			wx.showLoading({
 				title: '请稍后',
 			})
 			const _this = this
 			this.setData({
-				isLoading:true
+				isLoading: true
 			})
 			try {
-				util.handleUUID()
+				util.handleUUID(this.data.userInfo)
 					.then(uuid => util.pRequest(`${this.data.url}?uuid=${uuid}&num=${this.data.num}&page=${this.data.page}`))
 					.then(res => {
 						wx.hideLoading()
@@ -44,7 +64,7 @@ Component({
 						if (res.data.MESSAGE == 'SUCCESS') {
 							if (res.data.DAKA.length == 0) {
 								_this.setData({
-									noMoreData:true
+									noMoreData: true
 								})
 								return
 							}
@@ -71,10 +91,6 @@ Component({
 					})
 			} catch (err) {
 			}
-		},
-
-		_onPageChange() {
-			this._getData()
 		},
 
 		onClickDkItem(event) {
@@ -123,8 +139,4 @@ Component({
 			})
 		},
 	},
-
-	ready(){
-		this._getData()
-	}
 })
