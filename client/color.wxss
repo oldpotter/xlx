@@ -10,3 +10,7 @@
 .xlx-color-purple{
 	color: #ab48ab;
 }
+
+.xlx-color-light_purple{
+	color:#e9e4f5
+}

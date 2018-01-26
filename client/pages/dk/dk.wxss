@@ -12,7 +12,6 @@
 }
 
 .clock {
-  margin-top: 100rpx;
   font-size: 128rpx;
   color: #262226;
 }

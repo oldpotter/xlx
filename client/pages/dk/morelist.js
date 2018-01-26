@@ -8,6 +8,12 @@ Page({
 	},
 
 	onReady(){
+		wx.setNavigationBarTitle({
+			title: '打卡记录',
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
 		this.setData({
 			toReload:true,
 		})

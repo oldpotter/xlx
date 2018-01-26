@@ -22,6 +22,13 @@ Page({
 	},
 
 	onReady() {
+		wx.setNavigationBarTitle({
+			title: '',
+		})
+		wx.setNavigationBarColor({
+			frontColor: '#ffffff',
+			backgroundColor: '#e9e4f5',
+		})
 		const _this = this
 		wx.getUserInfo({
 			success: function (res) {
@@ -43,6 +50,10 @@ Page({
 	onClickBtn() {
 		if (!this.data.running) {
 			//开始
+			wx.setNavigationBarColor({
+				frontColor: '#ffffff',
+				backgroundColor: '#f5e4e8',
+			})
 			this.setData({
 				running: true,
 				start: moment()
@@ -56,6 +67,10 @@ Page({
 			}, 1000)
 		} else {
 			//结束
+			wx.setNavigationBarColor({
+				frontColor: '#ffffff',
+				backgroundColor: '#e9e4f5',
+			})
 			clearInterval(this.interval)
 			let duration = this.preciseDiff(this.data.start, moment(), true)
 			// console.log(`${duration.hours}小时${duration.minutes}分钟${duration.seconds}秒`)
