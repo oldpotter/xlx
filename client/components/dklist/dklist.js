@@ -49,6 +49,7 @@ Component({
 			wx.showLoading({
 				title: '请稍后',
 			})
+			wx.showNavigationBarLoading()
 			const _this = this
 			this.setData({
 				isLoading: true
@@ -88,6 +89,7 @@ Component({
 							wx.removeStorageSync('uuid')
 							setTimeout(() => _this._getData(), 1000)
 						}
+						wx.hideNavigationBarLoading()
 					})
 			} catch (err) {
 			}

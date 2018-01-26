@@ -45,6 +45,20 @@ Page({
 			})
 	},
 
+	onReady(){
+		wx.setNavigationBarTitle({
+			title: '',
+		})
+		wx.setNavigationBarColor({
+			frontColor: '#ffffff',
+			backgroundColor: '#e9e4f5',
+			animation: {
+				duration: 400,
+				timingFunc: 'easeIn'
+			}
+		})
+	},
+
 	onClickBtn(){
 		console.log('onClickBtn')
 		wx.switchTab({

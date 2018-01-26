@@ -17,10 +17,12 @@
     "pages/dk/morelist"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "学灵修",
-    "navigationBarTextStyle": "black"
+		"navigationStyle":"default",
+		"backgroundColor":"#9A259A",
+    "backgroundTextStyle": "light"
   },
   "tabBar": {
     "color": "#000000",
