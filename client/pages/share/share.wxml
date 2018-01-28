@@ -5,7 +5,7 @@
       <text class='nickname'>{{userinfo.nickName}}</text>
     </view>
     <view class='title'>练功打卡</view>
-    <view class='duration'>{{displayduration.hours}}小时{{displayduration.minutes}}分{{displayduration.seconds}}秒</view>
+    <view class='duration'>{{displayduration.hours}}:{{displayduration.minutes}}:{{displayduration.seconds}}</view>
     <view class='content'>“{{content}}”</view>
     <view class='date'>发表于{{displaydata}}</view>
     <view class='button' bindtap='onClickBtn'>
