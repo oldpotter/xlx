@@ -19,7 +19,8 @@
 
 <template name="wxParseAudio">
   <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-    <audio class="{{item.classStr}} wxParse-{{item.tag}}-audio" src="{{item.attr.src}}" controls></audio>
+      <!-- <audio class="{{item.classStr}} wxParse-{{item.tag}}-audio" src="{{item.attr.src}}" controls></audio>   -->
+		<klaudio class="{{item.classStr}} wxParse-{{item.tag}}-audio" src='{{item.attr.src}}'></klaudio>
   </view>
 </template>
 

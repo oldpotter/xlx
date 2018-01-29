@@ -46,9 +46,9 @@ Component({
 
 		_getData() {
 			// console.log('getData')
-			wx.showLoading({
-				title: '请稍后',
-			})
+			// wx.showLoading({
+			// 	title: '请稍后',
+			// })
 			wx.showNavigationBarLoading()
 			const _this = this
 			this.setData({
@@ -58,7 +58,7 @@ Component({
 				util.handleUUID(this.data.userInfo)
 					.then(uuid => util.pRequest(`${this.data.url}?uuid=${uuid}&num=${this.data.num}&page=${this.data.page}`))
 					.then(res => {
-						wx.hideLoading()
+						// wx.hideLoading()
 						_this.setData({
 							isLoading: false
 						})

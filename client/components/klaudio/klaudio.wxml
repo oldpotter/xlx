@@ -1,0 +1,14 @@
+<!--components/klaudio/klaudio.wxml-->
+<view class='klaudio-bg'>
+  <view class='klaudio-left'>
+    <image class='klaudio-btn' src='{{isPlaying?"./klaudio-pause.png":"./klaudio-play.png"}}' bindtap='onTap'></image>
+  </view>
+  <view class='klaudio-right'>
+    <view class='klaudio-info'>{{title}}</view>
+    <slider class='klaudio-slider' value='{{progress}}' bindchange='onChange' activeColor='#1E95BD'></slider>
+    <view class='klaudio-time'>
+      <text class='klaudio-current_time'>{{currentTime}}</text>
+      <text class='klaudio-total_time'>{{totalTime}}</text>
+    </view>
+  </view>
+</view>

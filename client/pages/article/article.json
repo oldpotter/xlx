@@ -1,1 +1,5 @@
-{}
+{
+	"usingComponents": {
+		"klaudio": "../../components/klaudio/klaudio"
+	}
+}

@@ -1,5 +1,5 @@
 {
 	"usingComponents":{
-		"dklist":"../../components/dklist/dklist"
+		"klaudio":"../../components/klaudio/klaudio"
 	}
 }
