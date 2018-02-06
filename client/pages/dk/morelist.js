@@ -34,6 +34,7 @@ Page({
 
 	onShareAppMessage(messages) {
 		return {
+			// title: '打卡分享',
 			path: `/pages/share/share?id=${app.selectedDkId}&uuid=${wx.getStorageSync('uuid')}`
 		}
 	},

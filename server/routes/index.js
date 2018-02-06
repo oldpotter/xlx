@@ -2,7 +2,7 @@
  * ajax 服务路由集合
  */
 const router = require('koa-router')({
-	prefix: '/weapp'   // 定义所有路由的前缀都已 /weapp 开头
+    prefix: '/weapp'   // 定义所有路由的前缀都已 /weapp 开头
 })
 const controllers = require('../controllers')
 
@@ -31,25 +31,7 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
-
-//测试下数据插入
-router.get('/testget', controllers.test.get)
-router.post('/testpost', controllers.test.post)
-router.post('/get_openId', controllers.test.getOpenId)
-
-//schedule
-//传数据的话用post
-router.post('/new_schedule', controllers.schedule.add)
-router.get('/all_schedules', controllers.schedule.all)
-router.post('/edit_schedule', controllers.schedule.edit)
-router.post('/remove_schedule', controllers.schedule.remove)
-router.post('/one_schedule', controllers.schedule.one)
-router.post('/apply_schedule', controllers.schedule.apply)
-router.post('/schedules_own', controllers.schedule.allOwn)
-router.post('/schedules_join', controllers.schedule.allJoin)
-
-//admin
-router.post('/admin_login', controllers.admin.login)
-router.get('/test',controllers.schedule.test)
+//获取分享图片
+router.post('/get-share-image', controllers.message.post)
 
 module.exports = router

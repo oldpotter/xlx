@@ -105,9 +105,8 @@ Page({
 		// console.log('messsages:', messages)
 		// console.log('articleId:', this.data.articleId)
 		return {
-			path: `/pages/article/article?articleId=${_this.data.articleId}&showAttachment=true`,
-			success(res) { },
-			fail(res) { },
+			// title:`${tshis.data.article.title}`,
+			path: `/pages/article/article?articleId=${_this.data.articleId}&showAttachment=true`
 		}
 	},
 
@@ -145,7 +144,7 @@ Page({
 	},
 
 	onClickShare(){
-		console.log('click')
+		// console.log('click')
 		wx.showShareMenu({
 			withShareTicket: true,
 			success: function(res) {},

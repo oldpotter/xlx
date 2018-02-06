@@ -14,10 +14,10 @@
 
 .share {
   position: fixed;
-  bottom: 85rpx;
+  bottom: 105rpx;
   right: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
 }
 
 .share-btn {
@@ -28,8 +28,8 @@
   position: fixed;
   bottom: 20rpx;
   right: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
 }
 
 .collection_on {
