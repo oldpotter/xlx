@@ -64,6 +64,12 @@ Page({
 				duration.minutes = duration.minutes < 10 ? `0${duration.minutes}` : duration.minutes
 				duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
 				this.setData({ duration })
+				// console.log(duration)
+				if (parseInt(duration.minutes) % 30 == 0) {
+					wx.playBackgroundAudio({
+						dataUrl: 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3',
+					})
+				}
 			}, 1000)
 		} else {
 			//结束
