@@ -3,6 +3,9 @@ const DkItem = require('../../models/dkitem.js')
 const config = require('../../config.js')
 const util = require('../../utils/util.js')
 const app = getApp()
+
+const debug = false//调试本页
+
 Page({
 	data: {
 		start: undefined,//开始时间
@@ -65,7 +68,9 @@ Page({
 				duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
 				this.setData({ duration })
 				// console.log(duration)
-				if (parseInt(duration.minutes) % 30 == 0) {
+				const diffInterval = debug ? 1000 * 60 * 30 : moment().diff(this.data.start)
+				const halfHour = 1000 * 60 * 30
+				if (duration.seconds == 1 && diffInterval % halfHour == 0 && diffInterval != 0) {
 					wx.playBackgroundAudio({
 						dataUrl: 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3',
 					})
