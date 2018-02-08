@@ -2,38 +2,38 @@
 @import '/plugins/weui-wxss/dist/app.wxss';
 @import '/plugins/zanui-weapp/dist/index.wxss';
 
-.xlx-list-container{
-	padding: 30rpx;
-	/* background: saddlebrown; */
+.xlx-list-container {
+  padding: 30rpx;
+  /* background: saddlebrown; */
 }
-
 
 .container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+	width: 100%;
+  position: absolute;
+  /* flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-
-.level-0{
-	font-size: 14px;
+  box-sizing: border-box; */
 }
 
-.level-25{
-	font-size: 18px;
+.level-0 {
+  font-size: 14px;
 }
 
-.level-50{
-	font-size: 20px;
+.level-25 {
+  font-size: 18px;
 }
 
-.level-75{
-	font-size: 22px;
+.level-50 {
+  font-size: 20px;
 }
 
-.level-100{
-	font-size: 24px;
+.level-75 {
+  font-size: 22px;
+}
+
+.level-100 {
+  font-size: 24px;
 }
