@@ -1,7 +1,7 @@
 const config = require('../../config.js')
 const util = require('../../utils/util.js')
-const app = getApp()
 Page({
+
 
 	onLoad() {
 		setTimeout(() => {
@@ -15,5 +15,6 @@ Page({
 			})
 		}, 3000)
 	},
+
 
 })

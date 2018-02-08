@@ -32,6 +32,6 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 //获取分享图片
-router.post('/get-share-image', controllers.message.post)
+router.post('/get-share-image', controllers.share)
 
 module.exports = router
