@@ -1,0 +1,4 @@
+<!-- <image src='{{url}}' style='width:300rpx;height:200rpx'></image> -->
+<button bindtap='btn1'>btn1</button>
+<button bindtap='btn2'>btn2</button>
+<audio src='{{url}}' controls></audio>

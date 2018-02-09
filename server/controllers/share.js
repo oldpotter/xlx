@@ -72,21 +72,19 @@ module.exports = async (ctx, next) => {
 		const offsetX3 = (sWidth - t3Width) / 2;
 		const offsetY3 = 270;
 
-		const target4Img = images(targetImg4Path);
-		const t4Width = target4Img.width();
-		const t4Height = target4Img.height();
-		const offsetX4 = (sWidth - t4Width) / 2;
-		const offsetY4 = 400;
+		// const target4Img = images(targetImg4Path);
+		// const t4Width = target4Img.width();
+		// const t4Height = target4Img.height();
+		// const offsetX4 = (sWidth - t4Width) / 2;
+		// const offsetY4 = 400;
 
 		images(sourceImg)
 			.draw(target1Img, offsetX1, offsetY1)
 			.draw(target2Img, offsetX2, offsetY2)
 			.draw(target3Img, offsetX3, offsetY3)
 			// .draw(target4Img, offsetX4, offsetY4)
-			.save(path.resolve(__dirname, '../resources/card.png'), { quality: 90 });
+			.save(path.resolve(__dirname, '../resources/card.png'), { quality: 90 })
+		ctx.state.code = 1985
 	})()
-		.then(() => {
-			ctx.state.code = 1985
-		})
 		.catch(e => console.error(e));
 }

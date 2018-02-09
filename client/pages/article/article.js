@@ -139,7 +139,7 @@ Page({
 			.replace(/<\/div>/g, '')
 			.replace(/table border="0" width="250" cellspacing="0" cellpadding="0">/g, '')
 
-		// console.log(`contentHtml:${contentHtml}`)
+		console.log(`contentHtml:${contentHtml}`)
 		wxParse.wxParse('article', 'html', contentHtml, this, 20)
 	},
 

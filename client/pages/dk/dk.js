@@ -3,9 +3,6 @@ const DkItem = require('../../models/dkitem.js')
 const config = require('../../config.js')
 const util = require('../../utils/util.js')
 const app = getApp()
-
-const debug = false//调试本页
-
 Page({
 	data: {
 		start: undefined,//开始时间
@@ -25,6 +22,7 @@ Page({
 	},
 
 	onReady() {
+		const _this = this
 		wx.setNavigationBarTitle({
 			title: '',
 		})
@@ -32,7 +30,6 @@ Page({
 			frontColor: '#ffffff',
 			backgroundColor: '#e9e4f5',
 		})
-		const _this = this
 		wx.getUserInfo({
 			success: function (res) {
 				if (res.errMsg == 'getUserInfo:ok') {
@@ -51,7 +48,14 @@ Page({
 
 	//点击“开始”亦或“结束”按钮
 	onClickBtn() {
+		const _this = this
 		if (!this.data.running) {
+			wx.setKeepScreenOn({
+				keepScreenOn: true,
+			})
+			wx.setScreenBrightness({
+				value: 0,
+			})
 			//开始
 			wx.setNavigationBarColor({
 				frontColor: '#ffffff',
@@ -67,16 +71,23 @@ Page({
 				duration.minutes = duration.minutes < 10 ? `0${duration.minutes}` : duration.minutes
 				duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
 				this.setData({ duration })
-				// console.log(duration)
-				const diffInterval = debug ? 1000 * 60 * 30 : moment().diff(this.data.start)
+				const diffInterval = moment().diff(this.data.start)
 				const halfHour = 1000 * 60 * 30
-				if (duration.seconds == 1 && diffInterval % halfHour == 0 && diffInterval != 0) {
-					wx.playBackgroundAudio({
-						dataUrl: 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3',
-					})
+				if (duration.seconds % 23 == 0) {
+					const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
+					const audioManager = wx.getBackgroundAudioManager()
+					audioManager.src = url
+					audioManager.play()
 				}
+
 			}, 1000)
 		} else {
+			wx.setKeepScreenOn({
+				keepScreenOn: false,
+			})
+			wx.setScreenBrightness({
+				value: 0.5,
+			})
 			//结束
 			wx.setNavigationBarColor({
 				frontColor: '#ffffff',
@@ -164,7 +175,7 @@ Page({
 	onShareAppMessage(messages) {
 		// console.log(app.selectedDkId)
 		return {
-			title:'打卡分享',
+			title: '打卡分享',
 			path: `/pages/share/share?id=${app.selectedDkId}&uuid=${wx.getStorageSync('uuid')}`
 		}
 	},

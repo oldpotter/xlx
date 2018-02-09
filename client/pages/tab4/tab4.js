@@ -1,3 +1,4 @@
+
 const app = getApp()
 
 Page({
@@ -23,8 +24,8 @@ Page({
 		})
 	},
 
+/*
 	onTap(event) {
-		// console.log(event)
 		const x = event.detail.x
 		const y = event.detail.y
 		const screenWidth = app.screenWidth
@@ -55,8 +56,28 @@ Page({
 			wx.showToast({
 				title: '打卡ring启用',
 				duration: 3000,
-				success: function(res) {
-					wx.setStorageSync('usingRing',true)
+				success: function (res) {
+					// const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
+					const url = 'https://ys2wqql1.qcloud.la/ring.mp3'
+					wx.downloadFile({
+						url: url,
+						header: {},
+						success: function (res) {
+							wx.saveFile({
+								tempFilePath: res.tempFilePath,
+								success: function (res) {
+									wx.setStorageSync('usingRing', res.savedFilePath)
+								},
+								fail: function (res) { },
+								complete: function (res) { },
+							})
+
+
+						},
+						fail: function (res) { },
+						complete: function (res) { },
+					})
+
 				},
 			})
 		} else {
@@ -64,5 +85,5 @@ Page({
 				num: 4
 			})
 		}
-	}
+	}*/
 })

@@ -4,6 +4,8 @@ const debug = require('debug')('koa-weapp-demo')
 const response = require('./middlewares/response')
 const bodyParser = require('./middlewares/bodyparser')
 const config = require('./config')
+const koaStatic = require('koa-static')  
+const path = require('path')
 
 // 使用响应处理中间件
 app.use(response)
@@ -14,6 +16,12 @@ app.use(bodyParser())
 // 引入路由分发
 const router = require('./routes')
 app.use(router.routes())
+
+// 配置静态资源
+const staticPath = './static'
+app.use(koaStatic(
+	path.join(__dirname, staticPath)
+))
 
 // 启动程序，监听端口
 app.listen(config.port, () => debug(`listening on port ${config.port}`))
