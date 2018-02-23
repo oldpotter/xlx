@@ -73,7 +73,8 @@ Page({
 				this.setData({ duration })
 				const diffInterval = moment().diff(this.data.start)
 				const halfHour = 1000 * 60 * 30
-				if (duration.seconds % 23 == 0) {
+				console.log(diffInterval % halfHour)
+				if (diffInterval % halfHour < 2000) {
 					const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
 					const audioManager = wx.getBackgroundAudioManager()
 					audioManager.src = url

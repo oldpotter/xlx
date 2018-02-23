@@ -6,13 +6,14 @@ const TextToSVG = require('text-to-svg')
 const svg2png = require("svg2png")
 const Promise = require('bluebird')
 
+
 module.exports = async (ctx, next) => {
 
 	Promise.promisifyAll(fs)
 
 	const textToSVG = TextToSVG.loadSync(path.resolve(__dirname, '../resources/WenQuanYi Micro Hei.ttf'))
 
-	const sourceImg = images(path.resolve(__dirname, '../resources/source.jpg'))
+	const sourceImg = images(path.resolve(__dirname, '../resources/share-bg.png'))
 	const sWidth = sourceImg.width()
 	const sHeight = sourceImg.height()
 
@@ -78,13 +79,15 @@ module.exports = async (ctx, next) => {
 		// const offsetX4 = (sWidth - t4Width) / 2;
 		// const offsetY4 = 400;
 
+
 		images(sourceImg)
 			.draw(target1Img, offsetX1, offsetY1)
 			.draw(target2Img, offsetX2, offsetY2)
 			.draw(target3Img, offsetX3, offsetY3)
 			// .draw(target4Img, offsetX4, offsetY4)
-			.save(path.resolve(__dirname, '../resources/card.png'), { quality: 90 })
+			.save(path.resolve(__dirname, '../static/pic.png'), { quality: 90 })
 		ctx.state.code = 1985
+		ctx.state.data = {path:'../static/pic.png'}
 	})()
 		.catch(e => console.error(e));
 }

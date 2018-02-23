@@ -6,82 +6,51 @@ Page({
 		url: undefined
 	},
 
-	onLoad() {
-		// util.pRequest('https://ys2wqql1.qcloud.la/source.jpg',{},'GET')
-		// .then(res=>console.log(res))
-		// const _this = this
-		// wx.downloadFile({
-		// 	url: 'https://ys2wqql1.qcloud.la/source.jpg',
-		// 	header: {},
-		// 	success: function(res) {
-		// 		console.log(res)
-		// 		_this.setData({
-		// 			url:res.tempFilePath
-		// 		})
-		// 	},
-		// 	fail: function(res) {
-		// 		console.error(res)
-		// 	},
-		// 	complete: function(res) {},
-		// })
-	},
-
-	btn1() {
+	onShareAppMessage(messages) {
+		console.log(this.data.url)
 		const _this = this
-		// const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3&a=.mp3'
-		// const url = 'http://owxe4dwj9.bkt.clouddn.com/xlx/audio/blog/B02.mp3'
-		// this.setData({url})
-		const url = 'https://ys2wqql1.qcloud.la/ring.mp3'
-		wx.downloadFile({
-			url: url,
-			header: {},
-			success: function (res) {
+		return {
+			title: '打卡分享',
+			imageUrl: _this.data.url
+		}
+	},
+
+	onReady() {
+		const _this = this
+		util.pRequest(config.nodeService.getShareImageUrl, {}, 'POST')
+			.then(res => {
 				console.log(res)
-				const path = res.tempFilePath
-				wx.setStorageSync('usingRing', path)
-				console.log('下载地址:', wx.getStorageSync('usingRing', path))
-				_this.setData({
-					url: path
+				return res.data.path
+			})
+			.then(()=>{
+				wx.downloadFile({
+					url: `https://ys2wqql1.qcloud.la/pic.png`,
+					header: {},
+					success: function(res) {
+						console.log('download:',res)
+						_this.setData({
+							url:res.tempFilePath
+						})
+					},
+					fail: function(res) {
+						console.error('download:',res)
+					},
+					complete: function(res) {},
 				})
-				// wx.saveFile({
-				// 	tempFilePath: res.tempFilePath,
-				// 	success: function (res) {
-				// 		const path = res.savedFilePath.replace(/.unknown/,'.mp3')
-				// 		wx.setStorageSync('usingRing', path)
-				// 		console.log('保存地址:', path)
-				// 		_this.setData({
-				// 			url:path
-				// 		})
-				// 	},
-				// 	fail: function (res) { },
-				// 	complete: function (res) { },
-				// })
+			})
+	},
 
-
-			},
-			fail: function (res) { },
-			complete: function (res) { },
+	onTap(){
+		console.log('sss')
+		wx.showShareMenu({
+			withShareTicket: true,
+			success: function(res) {},
+			fail: function(res) {},
+			complete: function(res) {},
 		})
-	},
+	}
 
-	btn2() {
-
-		// const backgroundAudioManager = wx.getBackgroundAudioManager()
-		// backgroundAudioManager.src = wx.getStorageSync('usingRing')
-		// console.log(backgroundAudioManager.src)
-		// wx.playBackgroundAudio({
-		// 	dataUrl: wx.getStorageSync('usingRing'),
-		// 	title: '',
-		// 	coverImgUrl: '',
-		// 	success: function(res) {},
-		// 	fail: function(res) {},
-		// 	complete: function(res) {},
-		// })
-		const innerAudioContext = wx.createInnerAudioContext()
-		innerAudioContext.autoplay = true
-		innerAudioContext.src = wx.getStorageSync('usingRing')
-		
-	},
-
+	
+	
 
 })
