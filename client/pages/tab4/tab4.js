@@ -24,6 +24,7 @@ Page({
 		})
 	},
 
+	
 /*
 	onTap(event) {
 		const x = event.detail.x

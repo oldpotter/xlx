@@ -111,5 +111,9 @@ Page({
 		this.setData({
 			list: list
 		});
+	},
+
+	onShareAppMessage(){
+		
 	}
 })

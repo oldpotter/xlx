@@ -25,4 +25,8 @@ Page({
 		}
 	},
 
+	onShareAppMessage() {
+
+	}
+
 })

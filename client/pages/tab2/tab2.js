@@ -17,4 +17,8 @@ Page(Object.assign({}, List, {
 			complete: function (res) { },
 		})
 	},
+
+	onShareAppMessage() {
+
+	}
 }))
