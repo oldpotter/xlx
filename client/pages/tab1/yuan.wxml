@@ -1,0 +1,11 @@
+<!--pages/tab1/yuan.wxml-->
+<view class='yuan-bg'>
+  <image class='avatar' src='../../resources/yuan-avatar.jpg'></image>
+  <text class='nickname'>元吾氏</text>
+  <view class='sign'>“一个无限/不生不灭的自由意识（Freewill/神Spirit）有着无穷无尽的自发幻想， 其景象就是无数多样的宇宙和万物及各自的规则和不规则。----是我，也是我们。 1=1+1+1+...... We are all One.”</view>
+  <view bindtap='_onTap'>
+    <text class='btn'>简介</text>
+    <image class='arrow' src='{{showIntro?"../../resources/arrow_up.png":"../../resources/arrow_down.png"}}'></image>
+  </view>
+  <view hidden='{{!showIntro}}' class='intro'>元吾氏，15岁修习中国传统性命双修法，后参考西方、印度等多种修行方法修行多年，于2008年1月27日得道，亲证万物本源。现于互联网上答疑，无偿指点灵修学习者。</view>
+</view>

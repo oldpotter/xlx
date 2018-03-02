@@ -1,8 +1,10 @@
 Page({
 	data: {
+		
 		list: [
 			{
 				id: '1',
+				color:'#E79832',
 				name: 'A、修道答疑',
 				open: false,
 				articles: [
@@ -12,6 +14,7 @@ Page({
 			},
 			{
 				id: '2',
+				color: '#D359d3',
 				name: 'B、修道经验',
 				open: false,
 				articles: [
@@ -49,6 +52,7 @@ Page({
 			{
 				id: '3',
 				name: 'C、修道方法',
+				color: '#EC6370',
 				open: false,
 				articles: [
 					{ title: '我的修道经验----我最常用的几种方法（前言）', url: 'http://www.xuelingxiu.com/yuanwushi/fi2UFj.html' },
@@ -78,6 +82,7 @@ Page({
 			},
 			{
 				id: '4',
+				color: '#5593E7',
 				name: 'D、参考资料',
 				open: false,
 				articles: [
@@ -88,6 +93,15 @@ Page({
 				]
 			},
 		]
+	},
+
+	onClickArticle(event){
+	
+		const articleId = event.detail.replace(/http:\/\/www.xuelingxiu.com\/yuanwushi\//, '')
+			.replace(/.html/, '')
+		wx.navigateTo({
+			url: `../article/article?articleId=${articleId}`,
+		})
 	},
 
 	onClickTitle(event) {

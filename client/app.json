@@ -14,14 +14,15 @@
     "pages/tab4/options",
     "pages/dk/dk",
     "pages/share/share",
-    "pages/dk/morelist"
+    "pages/dk/morelist",
+    "pages/tab1/cell"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "学灵修",
-		"navigationStyle":"default",
-		"backgroundColor":"#9A259A",
+    "navigationStyle": "default",
+    "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "light"
   },
   "tabBar": {

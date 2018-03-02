@@ -1,0 +1,41 @@
+/* pages/tab1/cell.wxss */
+
+.cell-bg {
+  box-shadow: 1rpx 1rpx 30rpx 0rpx #ececec;
+  margin: 30rpx;
+  border-radius: 20rpx;
+}
+
+.title-bg{
+	height: 100rpx;
+}
+
+.cell-color {
+	display: inline-block;
+	position: relative;
+	top: 20rpx;
+  height: 56rpx;
+  width: 8rpx;
+  border-radius: 8rpx;
+	margin-top: 10rpx;
+}
+
+.title {
+	display: inline-block;
+  margin: 0 30rpx;
+}
+
+.arrow{
+	position: relative;
+	margin: 40rpx 30rpx; 
+	float: right;
+	width:30rpx;
+	height: 30rpx;
+}
+
+.item{
+	position: relative;
+	left: 35rpx;
+	max-width: 90%;
+	/* background: saddlebrown; */
+}

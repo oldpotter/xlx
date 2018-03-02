@@ -1,0 +1,11 @@
+<!--pages/tab1/cell.wxml-->
+<view class='cell-bg'>
+  <view class='title-bg' bindtap='_onClickTitle'>
+    <view class='cell-color' style='background:{{color}}'></view>
+    <view class='title'>{{title}}</view>
+    <image class='arrow' src='{{showItems?"../../resources/arrow_up.png":"../../resources/arrow_down.png"}}'></image>
+  </view>
+  <view wx:if='{{showItems}}' wx:for='{{items}}'>
+    <view class='item' data-url='{{item.url}}' bindtap='_onClickItem'>{{item.title}}</view>
+  </view>
+</view>
