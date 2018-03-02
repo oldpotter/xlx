@@ -1,16 +1,15 @@
 <!--pages/article/article.wxml-->
 <import src='../../plugins/wxParse/wxParse.wxml' />
 
-<view class='page'>
-  <view class='page__bd level-{{level}}' style='margin:50rpx 30rpx'>
-    <!-- <view class='title'>{{titleHtml}}</view> -->
-		<template is='wxParse' data='{{wxParseData:title.nodes}}' />
-    <view wx:if='{{showAttachment}}' class='title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>
-    <view wx:if='{{showAttachment}}' class='content-attach'>回答时间:{{replaytimeFormat}}</view>
-    <template is='wxParse' data='{{wxParseData:article.nodes}}' />
-  </view>
+<view class='content-bg level-{{level}}'>
+  <template is='wxParse' data='{{wxParseData:title.nodes}}' />
+  <view wx:if='{{showAttachment}}' class='title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>
+  <view wx:if='{{showAttachment}}' class='content-attach'>回答时间:{{replaytimeFormat}}</view>
+  <template is='wxParse' data='{{wxParseData:article.nodes}}' />
+</view>
 
-	<image class='share' src='../../resources/share.png' bindtap='onClickShare'></image>
-	<button class='share share-btn' open-type='share'></button>
-  <image class='collection {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
+<view class='option-bg'>
+  <image class='option-img' src='../../resources/share.png' bindtap='onClickShare'></image>
+  <button class='share option-img' open-type='share'></button>
+  <image class='option-img {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
 </view>

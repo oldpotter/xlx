@@ -1,6 +1,28 @@
 /* pages/article/article.wxss */
 @import '../../plugins/wxParse/wxParse.wxss';
 
+.option-img{
+	margin: 10rpx 30rpx;
+	float: right;
+	width:70rpx;
+	height:70rpx;
+}
+
+.option-bg {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 90rpx;
+  width: 100%;
+	background: white;
+}
+
+
+.content-bg{
+	bottom: 90rpx;
+	padding: 90rpx 30rpx;
+}
+
 .title-attach {
   color: lightgray;
   font-size: 14px;
@@ -13,23 +35,9 @@
 }
 
 .share {
-  position: fixed;
-  bottom: 105rpx;
-  right: 20rpx;
-  width: 70rpx;
-  height: 70rpx;
-}
-
-.share-btn {
+	right: 0;
+	position: absolute;
   opacity: 0;
-}
-
-.collection {
-  position: fixed;
-  bottom: 20rpx;
-  right: 20rpx;
-  width: 70rpx;
-  height: 70rpx;
 }
 
 .collection_on {

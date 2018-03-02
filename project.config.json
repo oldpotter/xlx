@@ -73,6 +73,12 @@
 					"pathName": "pages/share/share",
 					"query": "id=aeiEZf&uuid=d156994a-2e74-4cd6-a6ac-ad50a0c5dbe3",
 					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "文章",
+					"pathName": "pages/article/article",
+					"query": "articleId=fi2UFj"
 				}
 			]
 		}
