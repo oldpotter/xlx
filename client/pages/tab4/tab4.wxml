@@ -1,6 +1,6 @@
 <import src='../../views/userinfo/index.wxml' />
 
-<view class='container'>
+<view class='container' bindtap='onTap'>
   <!-- <view class='page__bd' > -->
   <!-- <template is='wechat-user-info' /> -->
   <view class='weui-cells'>

@@ -1,4 +1,4 @@
-<view>
+<view style='background:white'>
   <yuan class='yuan' />
   <view wx:for='{{list}}'>
     <cell color='{{item.color}}' title='{{item.name}}' items='{{item.articles}}'  bind:onclickitem='onClickArticle'/>

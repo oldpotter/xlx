@@ -8,7 +8,7 @@ view {
 .yuan-bg {
   border-radius: 20rpx;
   background: #f6f6f6;
-   margin: 30rpx; 
+  margin: 30rpx;
   padding: 30rpx;
 }
 
@@ -35,7 +35,14 @@ view {
   display: inline-block;
   width: 30rpx;
   height: 30rpx;
+  margin-left: 10rpx;
 }
+
+.arrow_up {
+	 transform: rotate(180deg); 
+}
+
+
 
 .intro {
   display: block;

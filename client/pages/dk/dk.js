@@ -18,7 +18,21 @@ Page({
 		focus: true,
 		url: config.service.getDKsUrl,
 		toReload: false,
-		userInfo: undefined
+		userInfo: undefined,
+		isAdmin:false
+	},
+
+	onLoad(){
+		const _this = this
+		wx.getStorage({
+			key: 'admin',
+			success: function(res) {
+				_this.setData({isAdmin:res.data})
+				// console.log(res.data)
+			},
+			fail: function(res) {},
+			complete: function(res) {},
+		})
 	},
 
 	onReady() {

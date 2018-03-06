@@ -25,7 +25,7 @@ Page({
 	},
 
 	
-/*
+
 	onTap(event) {
 		const x = event.detail.x
 		const y = event.detail.y
@@ -54,37 +54,28 @@ Page({
 				num: 1
 			})
 		} else if (num == 1 && x <= screenWidth / 4 && y > screenHeight * 0.75 && y < screenHeight) {//左下
-			wx.showToast({
-				title: '打卡ring启用',
-				duration: 3000,
-				success: function (res) {
-					// const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
-					const url = 'https://ys2wqql1.qcloud.la/ring.mp3'
-					wx.downloadFile({
-						url: url,
-						header: {},
-						success: function (res) {
-							wx.saveFile({
-								tempFilePath: res.tempFilePath,
-								success: function (res) {
-									wx.setStorageSync('usingRing', res.savedFilePath)
-								},
-								fail: function (res) { },
-								complete: function (res) { },
-							})
-
-
-						},
-						fail: function (res) { },
-						complete: function (res) { },
+			wx.setStorage({
+				key: 'admin',
+				data: 'true',
+				success: function(res) {
+					wx.showToast({
+						title: '私人版本启用',
+						icon: 'success',
+						image: '',
+						duration: 2000,
+						mask: true,
+						success: function(res) {},
+						fail: function(res) {},
+						complete: function(res) {},
 					})
-
 				},
+				fail: function(res) {},
+				complete: function(res) {},
 			})
 		} else {
 			this.setData({
 				num: 4
 			})
 		}
-	}*/
+	}
 })
