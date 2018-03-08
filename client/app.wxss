@@ -34,3 +34,7 @@
 .level-100 {
   font-size: 24px;
 }
+
+.bg{
+	background: #FFFFFF;
+}

@@ -1,15 +1,10 @@
 /* pages/tab1/yuan.wxss */
-@import "../../app.wxss";
-
-view {
-  margin-top: 30rpx;
-}
 
 .yuan-bg {
   border-radius: 20rpx;
   background: #f6f6f6;
-  margin: 30rpx;
   padding: 30rpx;
+	 margin: 0 30rpx; 
 }
 
 .avatar {
@@ -39,10 +34,8 @@ view {
 }
 
 .arrow_up {
-	 transform: rotate(180deg); 
+  transform: rotate(180deg);
 }
-
-
 
 .intro {
   display: block;

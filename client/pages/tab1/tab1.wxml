@@ -1,38 +1,6 @@
-<view style='background:white'>
-  <yuan class='yuan' />
-  <view wx:for='{{list}}'>
-    <cell color='{{item.color}}' title='{{item.name}}' items='{{item.articles}}'  bind:onclickitem='onClickArticle'/>
-  </view>
+<view class='bg'>
+   <yuan style='margin:30rpx;' /> 
+   <view wx:for='{{list}}'>
+    <cell color='{{item.color}}' title='{{item.name}}' items='{{item.articles}}' bind:onclickitem='onClickArticle' />
+  </view> 
 </view>
-
-<!-- <view class='page' style='margin-top:100rpx'>
-  <view class='page__bd page__bd_spacing'>
-    <view class="kind-list">
-      <block wx:for="{{list}}" wx:key="id">
-        <view class="kind-list__item">
-          <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-            <view class="weui-flex__item">{{item.name}}</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
-          <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-            <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-              <block wx:for="{{item.articles}}" wx:for-item="article" wx:key="*this">
-                <view class="weui-cell weui-cell_access" bindtap='onClickTitle' data-url='{{article.url}}'>
-                  <view class="weui-cell__bd">{{article.title}}</view>
-                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-              </block>
-            </view>
-          </view>
-        </view>
-      </block>
-    </view>
-    <view class='one'>——提供灵修助力，见证实修点滴。——</view>
-    <view class='two'>元吾氏</view>
-    <view class='three'>元吾氏，15岁修习中国传统性命双修法，后参考西方、印度等多种修行方法修行多年，于2008年1月27日得道，亲证万物本源。现于互联网上答疑，无偿指点灵修学习者。</view>
-		<view class='four'>终极真相</view>
-		<view class='five'>一个无限/不生不灭的自由意识（Freewill/神Spirit）有着无穷无尽的自发幻想， 其景象就是无数多样的宇宙和万物及各自的规则和不规则。----是我，也是我们。 1=1+1+1+...... We are all One.</view>
-		<view class='six'>——元吾氏</view>
-     
-  </view>
-</view> -->

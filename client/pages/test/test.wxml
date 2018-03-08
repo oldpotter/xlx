@@ -1,3 +1,5 @@
- <image src='{{url}}' style='width:400rpx;height:320rpx'></image> 
- <button bindtap='onTap'>1</button>
- <button open-type='share'>22</button>
+<view class='bg'>
+  <view>111</view>
+  <view>111</view>
+  <view>111</view>
+</view>
