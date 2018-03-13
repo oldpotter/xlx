@@ -1,6 +1,11 @@
 <!--pages/article/article.wxml-->
 <import src='../../plugins/wxParse/wxParse.wxml' />
 
+
+<view style='margin:30rpx;' wx:for='{{arrUrls}}'>
+  <klaudio src='{{item}}' title='{{index}}'></klaudio>
+</view>
+
 <view class='content-bg level-{{level}}'>
   <template is='wxParse' data='{{wxParseData:title.nodes}}' />
   <view wx:if='{{showAttachment}}' class='title-attach'>提问者：{{asker}} · {{ctimeFormat}}</view>

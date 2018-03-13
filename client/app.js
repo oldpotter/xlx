@@ -24,7 +24,7 @@ App({
 		this.screenWidth = wx.getSystemInfoSync().screenWidth
 		this.screenHeight = wx.getSystemInfoSync().screenHeight
 	},
-
+	/*
 	onShow(){
 		wx.login({
 			success: function(res) {
@@ -37,7 +37,7 @@ App({
 						dataType: 'json',
 						responseType: 'text',
 						success: function(res) {
-							console.log(res)
+							// console.log(res)
 						},
 						fail: function(res) {},
 						complete: function(res) {},
@@ -48,6 +48,7 @@ App({
 			complete: function(res) {},
 		})
 	},
+	*/
 
 	article: null,//显示的文章
 	collections: null,//收藏的文章ids

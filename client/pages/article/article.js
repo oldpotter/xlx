@@ -14,7 +14,8 @@ Page({
 		replaytimeFormat: undefined,
 		isCollected: undefined,
 		articleId: undefined,
-		level: undefined
+		level: undefined,
+		arrUrls:[]
 	},
 
 	onLoad(options) {
@@ -26,6 +27,13 @@ Page({
 		})
 		//加载文章
 		if (options.articleId) {
+			//首页文章
+			wx.setNavigationBarTitle({
+				title: '详细',
+				success: function (res) { },
+				fail: function (res) { },
+				complete: function (res) { },
+			})
 			// console.log(`url:${options.url}`)
 			this.setData({
 				articleId: options.articleId
@@ -64,6 +72,7 @@ Page({
 				},
 			})
 		} else {
+			
 			this.parseArticle()
 			wx.getStorage({
 				key: `scrollTop_${this.data.articleId}`,
@@ -120,6 +129,17 @@ Page({
 			replaytimeFormat: app.article.replaytimeFormat,
 		})
 
+
+		const reg = /<audio([\s\S]*?)><\/audio>/gi
+		let arr
+		const arrUrls = []
+		while ((arr = reg.exec(app.article.contentHtml)) != null) {
+			// console.log(arr[0])
+			arrUrls.push(arr[0])
+		}
+		this.setData({arrUrls})
+		// console.log(this.data.arrUrls)
+
 		let titleHtml = app.article.titleHtml
 		wxParse.wxParse('title', 'html', titleHtml, this, 20)
 
@@ -139,7 +159,7 @@ Page({
 			.replace(/<\/div>/g, '')
 			.replace(/table border="0" width="250" cellspacing="0" cellpadding="0">/g, '')
 
-		console.log(`contentHtml:${contentHtml}`)
+		// console.log(`contentHtml:${contentHtml}`)
 		wxParse.wxParse('article', 'html', contentHtml, this, 20)
 	},
 
