@@ -11,8 +11,7 @@ const controllers = require('../controllers')
 const { auth: { authorizationMiddleware, validationMiddleware } } = require('../qcloud')
 
 // --- 登录与授权 Demo --- //
-// 登录接口 /weapp/login
-router.get('/login', authorizationMiddleware, controllers.login)
+
 // 用户信息接口（可以用来验证登录态） /weapp/user
 router.get('/user', validationMiddleware, controllers.user)
 
@@ -33,5 +32,8 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 //获取分享图片
 router.post('/get-share-image', controllers.share)
+//登录
+router.post('/login',controllers.login)
+
 
 module.exports = router

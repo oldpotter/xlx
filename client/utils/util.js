@@ -67,14 +67,12 @@ function handleUUID(result) {
 		let uuid = wx.getStorageSync('uuid')
 		// let uuid
 		if (uuid) {
-			// console.log('uuid:',uuid)
 			resolve(uuid)
 		} else {
 			wx.login({
 				success: function (res) {
 					let url = `${config.service.loginUrl}?jsCode=${res.code}`
 					if (result) {
-						// console.log('有用户数据:',result)
 						url = url + `&encryptedData=${encodeURIComponent(result.encryptedData)}&iv=${encodeURIComponent(result.iv)}`
 					}
 					_this.pRequest(url,{},'POST')

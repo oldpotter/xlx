@@ -9,7 +9,11 @@
 </view>
 
 <view class='option-bg'>
-  <image class='option-img' src='../../resources/share.png' bindtap='onClickShare'></image>
+  <view class='option-btn' hover-class='touch'>
+    <image class='option-img' src='../../resources/share.png' bindtap='onClickShare'></image>
+  </view>
   <button class='share option-img' open-type='share'></button>
-  <image class='option-img {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
+  <view class='option-btn' hover-class='touch'>
+    <image class='option-img {{isCollected?"collection_on":""}}' src='{{isCollected ? "../../resources/like-on.png":"../../resources/like-off.png"}}' bindtap='onClickCollection'></image>
+  </view>
 </view>

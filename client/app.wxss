@@ -1,7 +1,9 @@
 /**app.wxss**/
 @import '/plugins/weui-wxss/dist/app.wxss';
 @import '/plugins/zanui-weapp/dist/index.wxss';
-
+.touch{
+	background: lightgray;
+}
 
 .xlx-list-container {
   padding: 30rpx;

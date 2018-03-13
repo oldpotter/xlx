@@ -1,11 +1,19 @@
 /* pages/article/article.wxss */
 @import '../../plugins/wxParse/wxParse.wxss';
 
-.option-img{
-	margin: 10rpx 30rpx;
-	float: right;
-	width:70rpx;
-	height:70rpx;
+.option-btn {
+  float: right;
+  height: 90rpx;
+  width: 70rpx;
+  margin: 0 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option-img {
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .option-bg {
@@ -14,13 +22,12 @@
   bottom: 0;
   height: 90rpx;
   width: 100%;
-	background: white;
+  background: white;
 }
 
-
-.content-bg{
-	bottom: 90rpx;
-	padding: 90rpx 30rpx;
+.content-bg {
+  bottom: 90rpx;
+  padding: 90rpx 30rpx;
 }
 
 .title-attach {
@@ -35,8 +42,8 @@
 }
 
 .share {
-	right: 0;
-	position: absolute;
+  right: 0;
+  position: absolute;
   opacity: 0;
 }
 

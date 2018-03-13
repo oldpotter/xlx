@@ -14,8 +14,7 @@
     "pages/tab4/options",
     "pages/dk/dk",
     "pages/share/share",
-    "pages/dk/morelist",
-    "pages/tab1/cell"
+    "pages/dk/morelist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

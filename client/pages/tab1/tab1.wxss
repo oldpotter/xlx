@@ -1,0 +1,4 @@
+.yuan{
+	display: inline-block;
+	margin: 30rpx;
+}

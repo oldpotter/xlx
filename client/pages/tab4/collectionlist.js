@@ -1,6 +1,6 @@
 const app = getApp()
 const config = require('../../config.js')
-
+const util = require('../../utils/util.js')
 Page({
 	data: {
 		list: [],
@@ -8,7 +8,6 @@ Page({
 	},
 
 	onLoad() {
-		// console.log('collectios:', app.collections)
 		const _this = this
 		app.collections.forEach(id => {
 			wx.showLoading({
@@ -24,7 +23,7 @@ Page({
 					_this.setData({
 						list: list
 					})
-					console.log('list:', _this.data.list)
+					// console.log('list:', _this.data.list)
 					wx.hideLoading()
 				},
 				fail: function (res) {

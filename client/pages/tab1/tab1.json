@@ -1,6 +1,6 @@
 {
 	"usingComponents": {
-		"yuan": "./yuan",
-		"cell": "./cell"
+		"yuan": "./components/yuan",
+		"cell": "./components/cell"
 	}
 }

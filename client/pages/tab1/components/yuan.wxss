@@ -1,0 +1,45 @@
+/* pages/tab1/yuan.wxss */
+
+
+
+.yuan-bg {
+  border-radius: 20rpx;
+  background: #f6f6f6;
+  padding: 30rpx;
+  /* margin: 0 30rpx; */
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  vertical-align: middle;
+  margin-right: 30rpx;
+}
+
+.sign {
+  display: block;
+  /* margin: 0 30rpx; */
+}
+
+.btn {
+  display: inline;
+  /* margin: 30rpx; */
+  color: lightgray;
+}
+
+.arrow {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.arrow_up {
+  transform: rotate(180deg);
+}
+
+.intro {
+  display: block;
+  /* margin: 0 30rpx; */
+}

@@ -1,6 +1,8 @@
 <view class='bg'>
-   <yuan style='margin:30rpx;' /> 
-   <view wx:for='{{list}}'>
+  <view class='yuan'>
+    <yuan />
+  </view>
+  <view wx:for='{{list}}' wx:key='id'>
     <cell color='{{item.color}}' title='{{item.name}}' items='{{item.articles}}' bind:onclickitem='onClickArticle' />
-  </view> 
+  </view>
 </view>
