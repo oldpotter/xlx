@@ -130,12 +130,11 @@ Page({
 		})
 
 
-		const reg = /<audio([\s\S]*?)><\/audio>/gi
+		const reg = /<audio src="([\S]*)"([\s\S]*?)><\/audio>/gi
 		let arr
 		const arrUrls = []
 		while ((arr = reg.exec(app.article.contentHtml)) != null) {
-			// console.log(arr[0])
-			arrUrls.push(arr[0])
+			arrUrls.push(arr[1])
 		}
 		this.setData({arrUrls})
 		// console.log(this.data.arrUrls)

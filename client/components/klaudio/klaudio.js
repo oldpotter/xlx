@@ -19,7 +19,7 @@ Component({
 
 	methods: {
 		onChange(event) {
-			const time = event.detail.value/100 * this.data.audioCtx.duration
+			const time = event.detail.value / 100 * this.data.audioCtx.duration
 			this.data.audioCtx.seek(time)
 		},
 		onTap() {
@@ -41,9 +41,9 @@ Component({
 				const totalTime = moment.unix(this.data.audioCtx.duration).format('mm:ss')
 				const currentTime = moment.unix(this.data.audioCtx.currentTime).format('mm:ss')
 				this.setData({ totalTime, currentTime, progress })
-				// console.log(progress)
+				console.log(progress)
 			}, 1000)
-			// console.log(this.data.src)
+			console.log(this.data.src)
 		})
 
 		this.data.audioCtx.onError((res) => {

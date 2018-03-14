@@ -5,11 +5,11 @@
     <image class='play-img margin-h' src='{{isPlaying?"../../resources/btn_pause.png":"../../resources/btn_start.png"}}' bindtap='onTap'></image>
   </view>
   <view wx:if='{{isPlaying}}'>
-    <slider class='klaudio-slider' value='{{progress}}' bindchange='onChange' activeColor='#AB48AB'></slider>
-		<view class='times margin-h'>
-		<text class='current_time start'>{{currentTime}}</text>
-    <text class='total_time'>{{totalTime}}</text>
-		</view>
-    
+    <slider class='klaudio-slider' value='{{progress}}' bindchange='onChange' activeColor='#AB48AB' block-color='#ab48ab' block-size='16'></slider>
+    <view class='times margin-h'>
+      <text class='current_time start'>{{currentTime}}</text>
+      <text class='total_time'>{{totalTime}}</text>
+    </view>
+
   </view>
 </view>
