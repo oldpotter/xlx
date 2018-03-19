@@ -3,7 +3,7 @@
 
 
 <view style='margin:30rpx;' wx:for='{{arrUrls}}'>
-  <klaudio src='{{item}}' title='{{index}}'></klaudio>
+  <klaudio idx='{{item.idx}}' src='{{item.src}}' title='{{item.idx}}' is-playing='{{item.isPlaying}}' bind:klaudio='bindAudio'></klaudio>
 </view>
 
 <view class='content-bg level-{{level}}'>

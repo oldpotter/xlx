@@ -15,7 +15,7 @@ Page({
 		isCollected: undefined,
 		articleId: undefined,
 		level: undefined,
-		arrUrls:[]
+		arrUrls: [],
 	},
 
 	onLoad(options) {
@@ -72,7 +72,7 @@ Page({
 				},
 			})
 		} else {
-			
+
 			this.parseArticle()
 			wx.getStorage({
 				key: `scrollTop_${this.data.articleId}`,
@@ -95,6 +95,12 @@ Page({
 	},
 
 	onUnload() {
+		this.data.arrUrls.forEach(item => {
+			const param = `arrUrls[${item.idx}].isPlaying`
+			this.setData({
+				[param]: false
+			})
+		})
 		wx.setStorage({
 			key: 'collections',
 			data: app.collections,
@@ -133,12 +139,16 @@ Page({
 		const reg = /<audio src="([\S]*)"([\s\S]*?)><\/audio>/gi
 		let arr
 		const arrUrls = []
+		let i = 0
 		while ((arr = reg.exec(app.article.contentHtml)) != null) {
-			arrUrls.push(arr[1])
+			arrUrls.push({
+				idx: i++,
+				src: arr[1],
+				isPlaying: false
+			})
 		}
-		this.setData({arrUrls})
-		// console.log(this.data.arrUrls)
 
+		this.setData({ arrUrls })
 		let titleHtml = app.article.titleHtml
 		wxParse.wxParse('title', 'html', titleHtml, this, 20)
 
@@ -162,13 +172,13 @@ Page({
 		wxParse.wxParse('article', 'html', contentHtml, this, 20)
 	},
 
-	onClickShare(){
+	onClickShare() {
 		// console.log('click')
 		wx.showShareMenu({
 			withShareTicket: true,
-			success: function(res) {},
-			fail: function(res) {},
-			complete: function(res) {},
+			success: function (res) { },
+			fail: function (res) { },
+			complete: function (res) { },
 		})
 	},
 
@@ -200,4 +210,23 @@ Page({
 
 	},
 
+	//audio
+	bindAudio(event) {
+		const { idx, isPlaying } = event.detail
+
+		this.data.arrUrls.forEach(item => {
+			if (item.idx == idx) {
+				const param = `arrUrls[${idx}].isPlaying`
+				this.setData({
+					[param]: isPlaying
+				})
+			} else {
+				const param = `arrUrls[${item.idx}].isPlaying`
+				this.setData({
+					[param]: false
+				})
+			}
+		})
+
+	}
 })
