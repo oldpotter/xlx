@@ -64,12 +64,12 @@ Page({
 	onClickBtn() {
 		const _this = this
 		if (!this.data.running) {
-			wx.setKeepScreenOn({
-				keepScreenOn: true,
-			})
-			wx.setScreenBrightness({
-				value: 0,
-			})
+			// wx.setKeepScreenOn({
+			// 	keepScreenOn: true,
+			// })
+			// wx.setScreenBrightness({
+			// 	value: 0,
+			// })
 			//开始
 			wx.setNavigationBarColor({
 				frontColor: '#ffffff',
@@ -85,24 +85,24 @@ Page({
 				duration.minutes = duration.minutes < 10 ? `0${duration.minutes}` : duration.minutes
 				duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
 				this.setData({ duration })
+				/*
 				const diffInterval = moment().diff(this.data.start)
 				const halfHour = 1000 * 60 * 30
-				console.log(diffInterval % halfHour)
 				if (diffInterval % halfHour < 2000) {
 					const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
 					const audioManager = wx.getBackgroundAudioManager()
 					audioManager.src = url
 					audioManager.play()
-				}
+				}*/
 
 			}, 1000)
 		} else {
-			wx.setKeepScreenOn({
-				keepScreenOn: false,
-			})
-			wx.setScreenBrightness({
-				value: 0.5,
-			})
+			// wx.setKeepScreenOn({
+			// 	keepScreenOn: false,
+			// })
+			// wx.setScreenBrightness({
+			// 	value: 0.5,
+			// })
 			//结束
 			wx.setNavigationBarColor({
 				frontColor: '#ffffff',
@@ -141,7 +141,6 @@ Page({
 			util.handleUUID()
 				.then(uuid => {
 					const url = `${config.service.saveDKUrl}?uuid=${uuid}&type=1&record=${encodeURIComponent(_this.data.dkItem.content)}&ctime=${_this.data.dkItem.tsDate}&duration=${_this.data.dkItem.tsDuration}`
-					// console.log('url:', url)
 					util.pRequest(url, 'POST')
 						.then(res => {
 							if (res.data.MESSAGE == 'SUCCESS') {
@@ -163,7 +162,6 @@ Page({
 				})
 		} catch (err) {
 			wx.hideLoading()
-			console.error('出错啦：', err)
 		}
 	},
 
