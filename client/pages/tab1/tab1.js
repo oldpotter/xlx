@@ -47,7 +47,8 @@ Page({
 					{ title: '27.终极真相----本源与个体的关系', url: 'http://www.xuelingxiu.com/yuanwushi/Ez6jEj.html' },
 					{ title: '28.终极真相----所有问题的答案', url: 'http://www.xuelingxiu.com/yuanwushi/AFfYjq.html' },
 					{ title: '29.第一次天上掉馅饼的故事', url: 'http://www.xuelingxiu.com/yuanwushi/fEBbY3.html' },
-					{ title: '30.意识强度是什么', url: 'http://www.xuelingxiu.com/yuanwushi/iYNnQz.html' },
+					{ title: '30.本源的震荡（动图)', url: 'http://www.xuelingxiu.com/yuanwushi/QfQneq.html' },
+					{ title: '31.意识强度是什么', url: 'http://www.xuelingxiu.com/yuanwushi/iYNnQz.html' },
 				]
 			},
 			{
