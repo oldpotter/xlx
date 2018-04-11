@@ -28,13 +28,18 @@ Component({
 			const backAudio = wx.getBackgroundAudioManager()
 			let interval
 			if (this.data.isPlaying) {
-				backAudio.onPlay(() =>wx.showLoading({
+				backAudio.onPlay(() => wx.showLoading({
 					title: '',
 					mask: true,
-					success: function(res) {},
-					fail: function(res) {},
-					complete: function(res) {},
+					success: function (res) {
+						// console.log(res)
+					},
+					fail: function (res) {
+						// console.error(res)
+					},
+					complete: function (res) { },
 				}))
+				backAudio.title = this.data.title
 				backAudio.src = this.data.src
 				backAudio.startTime = this.startTime
 				interval = setInterval(() => {
