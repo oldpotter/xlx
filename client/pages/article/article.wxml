@@ -1,8 +1,7 @@
 <!--pages/article/article.wxml-->
 <import src='../../plugins/wxParse/wxParse.wxml' />
 
-
-<view style='margin:30rpx;' wx:for='{{arrUrls}}'>
+<view style='margin:30rpx;' wx:for='{{arrUrls}}' wx:key='{{item.idx}}'>
   <klaudio idx='{{item.idx}}' src='{{item.src}}' title='{{item.idx}}' is-playing='{{item.isPlaying}}' bind:klaudio='bindAudio'></klaudio>
 </view>
 
