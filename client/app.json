@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/tab3/tab3",
+    "pages/tab4/tab4",
     "pages/tab1/tab1",
     "pages/search/search",
-    "pages/tab3/tab3",
     "pages/detail/detail",
     "pages/test/test",
     "pages/tab2/tab2",
     "pages/article/article",
-    "pages/tab4/tab4",
     "pages/tab4/collectionlist",
     "pages/article-list/article-list",
     "pages/web-view/web-view",
@@ -28,30 +28,19 @@
     "color": "#000000",
     "selectedColor": "#9A259A",
     "list": [
-      {
-        "pagePath": "pages/tab1/tab1",
-        "text": "元吾氏集录",
-        "selectedIconPath": "./resources/album-on.png",
-        "iconPath": "./resources/album-off.png"
-      },
-      {
-        "pagePath": "pages/tab2/tab2",
-        "text": "答疑",
-        "selectedIconPath": "./resources/qa-on.png",
-        "iconPath": "./resources/qa-off.png"
-      },
+			{
+				"pagePath": "pages/tab3/tab3",
+				"text": "首页",
+				"selectedIconPath": "./resources/other-on.png",
+				"iconPath": "./resources/other-off.png"
+			},
 			{
 				"pagePath": "pages/dk/dk",
 				"text": "打卡",
 				"selectedIconPath": "./resources/daka-on.png",
 				"iconPath": "./resources/daka-off.png"
 			},
-      {
-        "pagePath": "pages/tab3/tab3",
-        "text": "其它",
-        "selectedIconPath": "./resources/other-on.png",
-        "iconPath": "./resources/other-off.png"
-      },
+      
       {
         "pagePath": "pages/tab4/tab4",
         "text": "我的",
