@@ -2,9 +2,15 @@
 <view class='page'>
   <view class='top-bg {{running?"top-bg_recording":""}}'>
     <view class='clock'>{{duration.hours}}:{{duration.minutes}}:{{duration.seconds}}</view>
+
     <view class='btn {{running?"btn_recording":""}}' bindtap='onClickBtn'>
       <text class='btn-text'>{{running?'结束打卡':'点击打卡'}}</text>
     </view>
+
+    <view class='wrap'>
+      <image src='../../resources/setting.png' class='setting' bindtap='onClickSetting'></image>
+    </view>
+
   </view>
 
   <view class='list_title-bg'>
@@ -28,4 +34,3 @@
   <!-- <textarea disabled class='prompt-text' maxlength='140' show-confirm-bar='' bindinput='onInput' placeholder='说点感受（140字以内）====(暂不可用)====' /> -->
   <button class='prompt-btn' bindtap='onConfirm'>确定</button>
 </view>
-

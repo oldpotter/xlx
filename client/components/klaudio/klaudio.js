@@ -12,7 +12,10 @@ Component({
 			type: Boolean,
 			observer: '_bindPlaying'
 		},
-
+		selected:{
+			type:Boolean,
+			value:false,
+		}
 	},
 
 	data: {
@@ -63,6 +66,7 @@ Component({
 				clearInterval(interval)
 			}
 		},
+
 		onChange(event) {
 			const backAudio = wx.getBackgroundAudioManager()
 			const time = event.detail.value / 100 * backAudio.duration
@@ -75,6 +79,12 @@ Component({
 				idx: this.data.idx,
 				isPlaying: !this.data.isPlaying
 			}, {})
+		},
+
+		onClickItem(){
+			this.triggerEvent('clickbg',{
+				idx:this.data.idx,
+			})
 		},
 	},
 })

@@ -1,0 +1,4 @@
+<!--components/kl-audio-list/kl-audio-list.wxml-->
+<view style='margin:30rpx;' wx:for='{{dataSource}}'>
+	 <kl-audio idx='{{item.idx}}' src='{{item.src}}' title='{{item.title}}' is-playing='{{item.isPlaying}}' bind:klaudio='bindAudio' selected='{{item.selected}}' bind:clickbg='onClickItem'/>
+</view>

@@ -1,34 +1,44 @@
 /* components/klaudio/klaudio.wxss */
-.margin-h{
-	margin: 0 30rpx;
-}
-.bg{
-	background-color: #fcfcfc;
-	box-shadow: 1rpx 7rpx 30rpx 0rpx #ececec;
-	border-radius: 20rpx;
+
+.margin-h {
+  margin: 0 30rpx;
 }
 
-.bg-a{
-	height: 140rpx;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+.title {
+  max-width: 400rpx;
 }
 
-.play-img{
-	width:120rpx;
-	height: 120rpx;
+.bg {
+  background: #fcfcfc;
+  box-shadow: 1rpx 7rpx 30rpx 0rpx #ececec;
+  border-radius: 20rpx;
 }
 
-.times{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 12px;
+.selected{
+	background: #e9e4f5;
 }
 
-.start{
-	color: #AB48Ab;
+.bg-a {
+  height: 140rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-img {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.times {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.start {
+  color: #ab48ab;
 }

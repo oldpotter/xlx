@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+		"kl-audio-list": "../../components/kl-audio-list/kl-audio-list"
+	}
+}

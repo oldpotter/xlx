@@ -1,0 +1,3 @@
+<!--pages/dk/setting-list.wxml-->
+
+<kl-audio-list dataSource='{{dataSource}}' bind:datasource='bindDatasource'/>

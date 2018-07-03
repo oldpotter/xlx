@@ -1,8 +1,8 @@
 <!--components/klaudio/klaudio.wxml-->
-<view class='bg'>
-  <view class='bg-a'>
+<view class='bg {{selected?"selected":""}}' >
+  <view class='bg-a' bindtap='onClickItem'>
     <view class='title margin-h'>{{title}}</view>
-    <image class='play-img margin-h' src='{{isPlaying?"../../resources/btn_pause.png":"../../resources/btn_start.png"}}' bindtap='onTap'></image>
+    <image wx:if='{{src}}' class='play-img margin-h' src='{{isPlaying?"../../resources/btn_pause.png":"../../resources/btn_start.png"}}' catchtap='onTap'></image>
   </view>
   <view hidden='{{!isPlaying}}'>
     <slider class='klaudio-slider' value='{{progress}}' bindchange='onChange' activeColor='#AB48AB' block-color='#ab48ab' block-size='16'></slider>
