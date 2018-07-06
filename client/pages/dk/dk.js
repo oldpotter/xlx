@@ -68,13 +68,24 @@ Page({
   //点击“开始”亦或“结束”按钮
   onClickBtn() {
     const _this = this
+    const backAudio = wx.getBackgroundAudioManager()
+    backAudio.onStop(() => {
+      _this._stop()
+    })
     if (!this.data.running) {
       //音乐
-      if (!app.dataSource[0].selected) {
+      if (app.dkOptions.isMusicOn) {
         const music = app.dataSource.find(item => item.selected)
-        const backAudio = wx.getBackgroundAudioManager()
         backAudio.title = music.title
-        backAudio.onStop(() => this._stop())
+
+        backAudio.onEnded(() => {
+          if (app.dkOptions.isCircleOn) {
+            backAudio.src = music.src
+            backAudio.play()
+          } else {
+            _this._stop()
+          }
+        })
         backAudio.src = music.src
       }
       //背景色
@@ -94,21 +105,10 @@ Page({
         this.setData({
           duration
         })
-        /*
-        const diffInterval = moment().diff(this.data.start)
-        const halfHour = 1000 * 60 * 30
-        if (diffInterval % halfHour < 2000) {
-        	const url = 'https://kl-1255829748.cos.ap-shanghai.myqcloud.com/ring.mp3'
-        	const audioManager = wx.getBackgroundAudioManager()
-        	audioManager.src = url
-        	audioManager.play()
-        }*/
 
       }, 1000)
     } else {
-      const backAudio = wx.getBackgroundAudioManager()
       backAudio.stop()
-      this._stop()
     }
   },
 

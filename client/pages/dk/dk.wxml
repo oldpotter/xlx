@@ -7,7 +7,7 @@
       <text class='btn-text'>{{running?'结束打卡':'点击打卡'}}</text>
     </view>
 
-    <view class='wrap'>
+    <view wx:if='{{!running}}' class='wrap'>
       <image src='../../resources/setting.png' class='setting' bindtap='onClickSetting'></image>
     </view>
 

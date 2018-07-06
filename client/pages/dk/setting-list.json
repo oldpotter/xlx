@@ -1,5 +1,6 @@
 {
 	"usingComponents": {
-		"kl-audio-list": "../../components/kl-audio-list/kl-audio-list"
+		"kl-audio-list": "../../components/kl-audio-list/kl-audio-list",
+		"kl-switch-cell": "../../components/kl-switch-cell/kl-switch-cell"
 	}
 }

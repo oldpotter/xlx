@@ -1,0 +1,8 @@
+<!--components/kl-switch-cell/kl-switch-cell.wxml-->
+<view class='kl_cell_container'>
+  <view>
+    <view class='title'>{{title}}</view>
+    <view class='desc xlx-color-gray'>{{desc}}</view>
+  </view>
+  <switch checked='{{checked}}' bindchange='bindChange'></switch>
+</view>

@@ -1,0 +1,13 @@
+/* components/kl-switch-cell/kl-switch-cell.wxss */
+@import '../../color.wxss';
+.kl_cell_container{
+	margin-bottom: 30rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20rpx 30rpx;
+	background: #fcfcfc;
+  box-shadow: 1rpx 7rpx 30rpx 0rpx #ececec;
+  border-radius: 20rpx;
+}

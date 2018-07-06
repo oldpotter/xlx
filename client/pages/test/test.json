@@ -1,5 +1,5 @@
 {
-	"usingComponents":{
-		"klaudio":"../../components/klaudio/klaudio"
+	"usingComponents": {
+		"kl-switch-cell": "../../components/kl-switch-cell/kl-switch-cell"
 	}
 }

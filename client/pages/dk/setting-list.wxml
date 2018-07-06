@@ -1,3 +1,9 @@
 <!--pages/dk/setting-list.wxml-->
-
-<kl-audio-list dataSource='{{dataSource}}' bind:datasource='bindDatasource'/>
+<view class='xlx-list-container'>
+  <kl-switch-cell title='打卡音频' desc='打卡时播放音频文件,音频播放完后打卡自动结束' checked='{{isMusicOn}}' bind:klswitchcell='bindMusic' />
+  <kl-switch-cell wx:if='{{isMusicOn}}' title='循环播放' desc='' checked='{{isCircleOn}}' bind:klswitchcell='bindCircle' />
+</view>
+<view  wx:if='{{isMusicOn}}'>
+	<view class='xlx-color-gray' style='padding-left:30rpx'>选择要播放的音频文件</view>
+  <kl-audio-list dataSource='{{dataSource}}' bind:datasource='bindDatasource' />
+</view>
