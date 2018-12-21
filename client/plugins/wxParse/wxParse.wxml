@@ -95,6 +95,10 @@
       <template is="wxParseVideo" data="{{item}}" />
     </block>
 
+		<block wx:elif="{{item.tag == 'iframe'}}">
+      <template is="wxParseVideo" data="{{item}}" />
+    </block>
+
     <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
     </block> -->

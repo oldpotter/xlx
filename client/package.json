@@ -1,0 +1,14 @@
+{
+  "name": "xlx",
+  "author": "op",
+  "license": "MIT",
+  "dependencies": {
+    "html-parse-stringify2": "^2.0.1",
+    "moment": "^2.23.0",
+    "url-parse": "^1.4.4"
+  },
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "description": ""
+}

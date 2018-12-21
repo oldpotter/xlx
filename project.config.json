@@ -1,20 +1,19 @@
 {
-	"client": "./client",
-	"svr": "./server",
+	"client": "client/",
+	"svr": "server/",
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.0",
+	"libVersion": "2.4.2",
 	"appid": "wx9e5e34b853bd71bb",
 	"projectname": "xlx",
-	"qcloudRoot": "",
-	"miniprogramRoot": "",
 	"condition": {
 		"search": {
 			"current": -1,

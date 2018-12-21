@@ -1,1 +1,8 @@
-<kl-switch-cell title='打卡时下水道发生的发生地方撒打算' desc='阿斯顿发送到发送到发送短发撒发达时代发生的发放' checked bind:klswitchcell='bindSwitchCell'/>
+ <video
+    id="myVideo"
+    src="http://113.215.26.156/vhot2.qqvideo.tc.qq.com/ASOJj0w2dMxXnEbkcAH2m2DDGq4YY5R2vjjPEO35VBnM/g0556n3nzhg.p701.1.mp4?vkey=CAFEA5F0A8304A7359ECE134C36948E80F45AB532A9F116E70D7E7DDD05956C1A477390F42EFAA1861AE97587C5EACC436730534EF491398AAED8BA18E106A44AFD45A8FB80942B2DB6F4C468701E3805C08DBB61F123FF79C5E1C3798327FF38D9EB815F8EB189C"
+    danmu-list="{{danmuList}}"
+    enable-danmu
+    danmu-btn
+    controls
+  ></video>
