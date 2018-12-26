@@ -1,10 +1,8 @@
 import qqVideo from '../../utils/qqVideo.js'
+const util = require('../../utils/util.js')
 const moment = require('moment')
 const parse = require('url-parse');
 var HTML = require('html-parse-stringify2')
-
-
-
 
 Page({
   data: {
@@ -13,7 +11,7 @@ Page({
 
   onLoad() {
     const _this = this
-		/*
+    /*
     let url = parse('https://v.qq.com/iframe/player.html?vid=g0556n3nzhg&amp;tiny=0&amp;auto=0', true)
     const vid = url.query.vid
     qqVideo.getVideoes(vid)
@@ -27,11 +25,16 @@ Page({
         }
       })*/
 
-		const text = '<iframe width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=g0556n3nzhg&amp;tiny=0&amp;auto=0" frameborder="0" ></iframe>'
-		let url = HTML.parse(text)
-		console.log(url)
-		if(url[0].name == 'iframe'){
-			console.log('src是：', url[0].attrs.src)
-		}
+    const text = '<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=j03326o12dk" allowFullScreen="true"></iframe>'
+    const text2 = '<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=m03247hg03c" allowFullScreen="true"></iframe>'
+    let url = HTML.parse(text)
+    if (url[0].name == 'iframe') {
+      let src = url[0].attrs.src
+      let vid = parse(src, true).query.vid
+      util.getTencentVideoUrl(vid)
+        .then(res => {
+						_this.setData({src: res})
+        })
+    }
   },
 })

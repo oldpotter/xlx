@@ -176,6 +176,14 @@ Page({
     if (contentHtml[0].name == 'iframe') {
       let src = contentHtml[0].attrs.src
       let vid = parse(src, true).query.vid
+			util.getTencentVideoUrl(vid)
+			.then(src => {
+				contentHtml[0].attrs.src = src
+				contentHtml = HTML.stringify(contentHtml)
+				// console.log('contentHtml stringify:', contentHtml)
+				wxParse.wxParse('article', 'html', contentHtml, this, 20)
+			})
+			/*
       qqVideo.getVideoes(vid)
         .then(res => {
           if (res.length > 0) {
@@ -186,7 +194,9 @@ Page({
             wxParse.wxParse('article', 'html', contentHtml, this, 20)
           }
         })
-    }else{
+    
+		*/
+		}else{
 			contentHtml = HTML.stringify(contentHtml)
 			wxParse.wxParse('article', 'html', contentHtml, this, 20)
 		}

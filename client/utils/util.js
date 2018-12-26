@@ -1,5 +1,7 @@
 const moment = require('../plugins/moment.min.js')
 const config = require('../config.js')
+// const request = require('request')
+
 const formatTime = date => {
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1
@@ -93,11 +95,41 @@ function handleUUID(result) {
 	})
 }
 
+function getTencentVideoUrl(vid){
+	return new Promise((resolve, reject) => {
+		let url = `https://vv.video.qq.com/getinfo?vids=${vid}&platform=101001&charge=0&otype=json&defn=shd`
+		wx.request({
+			url: url,
+			data: '',
+			header: {},
+			method: 'GET',
+			dataType: 'json',
+			responseType: 'text',
+			success: function (res) {
+				let data = res.data
+				data = data.replace(/QZOutputJson=/, '')
+				data = data.replace(/;$/, '')
+				data = JSON.parse(data)
+				console.log(data)
+				const url = data['vl']['vi'][0]['ul']['ui'][0]['url']
+					+ data['vl']['vi'][0]['fn']
+					+ "?vkey="
+					+ data['vl']['vi'][0]['fvkey']
+				resolve(url)
+			},
+			fail: function (res) { },
+			complete: function (res) { },
+		})
+	})
+	
+}
+
 module.exports = {
 	formatTime,
 	getTimeFromNow,
 	getFormatTime,
 	pRequest,
 	handleUUID,
-	pGetUserInfo
+	pGetUserInfo,
+	getTencentVideoUrl
 }

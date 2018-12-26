@@ -4,14 +4,14 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1545358670687, function(require, module, exports) {
+__DEFINE__(1545793906233, function(require, module, exports) {
 module.exports = {
     parse: require('./lib/parse'),
     stringify: require('./lib/stringify')
 };
 
-}, function(modId) {var map = {"./lib/parse":1545358670688,"./lib/stringify":1545358670690}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1545358670688, function(require, module, exports) {
+}, function(modId) {var map = {"./lib/parse":1545793906234,"./lib/stringify":1545793906236}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1545793906234, function(require, module, exports) {
 /*jshint -W030 */
 var tagRE = /(?:<!--[\S\s]*?-->|<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)/g;
 var parseTag = require('./parse-tag');
@@ -116,8 +116,8 @@ module.exports = function parse(html, options) {
     return result;
 };
 
-}, function(modId) { var map = {"./parse-tag":1545358670689}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1545358670689, function(require, module, exports) {
+}, function(modId) { var map = {"./parse-tag":1545793906235}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1545793906235, function(require, module, exports) {
 var attrRE = /([\w-]+)|=|(['"])([.\s\S]*?)\2/g;
 var voidElements = require('void-elements');
 
@@ -164,7 +164,7 @@ module.exports = function (tag) {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1545358670690, function(require, module, exports) {
+__DEFINE__(1545793906236, function(require, module, exports) {
 function attrString(attrs) {
     var buff = [];
     for (var key in attrs) {
@@ -196,6 +196,6 @@ module.exports = function (doc) {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1545358670687);
+return __REQUIRE__(1545793906233);
 })()
 //# sourceMappingURL=index.js.map

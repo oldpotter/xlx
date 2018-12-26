@@ -5,6 +5,7 @@
   "dependencies": {
     "html-parse-stringify2": "^2.0.1",
     "moment": "^2.23.0",
+    "request": "^2.88.0",
     "url-parse": "^1.4.4"
   },
   "version": "1.0.0",
