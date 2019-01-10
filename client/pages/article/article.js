@@ -7,7 +7,6 @@ const parse = require('url-parse');
 var HTML = require('html-parse-stringify2')
 
 Page({
-
   data: {
     showAttachment: undefined,
     article: undefined,

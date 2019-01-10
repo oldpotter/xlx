@@ -68,49 +68,45 @@ Page({
   //点击“开始”亦或“结束”按钮
   onClickBtn() {
     const _this = this
-    const backAudio = wx.getBackgroundAudioManager()
-    backAudio.onStop(() => {
-      _this._stop()
-    })
+    
+    // backAudio.onStop(() => {
+    //   _this._stop()
+    // })
     if (!this.data.running) {
-      //音乐
-      if (app.dkOptions.isMusicOn) {
-        const music = app.dataSource.find(item => item.selected)
-        backAudio.title = music.title
-
-        backAudio.onEnded(() => {
-          if (app.dkOptions.isCircleOn) {
-            backAudio.src = music.src
-            backAudio.play()
-          } else {
-            _this._stop()
-          }
-        })
-        backAudio.src = music.src
-      }
-      //背景色
-      wx.setNavigationBarColor({
-        frontColor: '#ffffff',
-        backgroundColor: '#f5e4e8',
-      })
-      this.setData({
-        running: true,
-        start: moment()
-      })
-      this.interval = setInterval(() => {
-        let duration = this.preciseDiff(this.data.start, moment(), true)
-        duration.hours = duration.hours < 10 ? `0${duration.hours}` : duration.hours
-        duration.minutes = duration.minutes < 10 ? `0${duration.minutes}` : duration.minutes
-        duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
-        this.setData({
-          duration
-        })
-
-      }, 1000)
+      this._start()     
     } else {
-      backAudio.stop()
+      this._stop()
     }
   },
+
+	_start(){
+		//背景色
+		wx.setNavigationBarColor({
+			frontColor: '#ffffff',
+			backgroundColor: '#f5e4e8',
+		})
+		this.setData({
+			running: true,
+			start: moment()
+		})
+		this.interval = setInterval(() => {
+			let duration = this.preciseDiff(this.data.start, moment(), true)
+			duration.hours = duration.hours < 10 ? `0${duration.hours}` : duration.hours
+			duration.minutes = duration.minutes < 10 ? `0${duration.minutes}` : duration.minutes
+			duration.seconds = duration.seconds < 10 ? `0${duration.seconds}` : duration.seconds
+			this.setData({
+				duration
+			})
+		}, 1000)
+
+		//音乐
+		if (app.dkOptions.isMusicOn) {
+			const backAudio = wx.getBackgroundAudioManager()
+			const music = app.dataSource.find(item => item.selected)
+			backAudio.title = music.title
+			backAudio.src = music.src
+		}
+	},
 
   _stop() {
     //结束
@@ -137,6 +133,12 @@ Page({
       showDialog: true,
       dkItem: dkItem
     })
+
+		if (app.dkOptions.isMusicOn) {
+			const backAudio = wx.getBackgroundAudioManager()
+			backAudio.stop()
+			backAudio.src = ''
+		}
   },
 
   //点击确定

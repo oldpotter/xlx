@@ -48,5 +48,6 @@
         "iconPath": "./resources/me-off.png"
       }
     ]
-  }
+  },
+	"requiredBackgroundModes":["audio"]
 }
