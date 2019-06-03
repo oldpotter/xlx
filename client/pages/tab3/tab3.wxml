@@ -3,7 +3,7 @@
     <view class="kind-list">
       <block wx:for="{{list}}" wx:key="*this">
         <view class="kind-list__item">
-          <view id="{{index}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="onTap">
+          <view id="{{index}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="onTap" data-text='{{item}}'>
             <view class="weui-flex__item">{{item}}</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
           </view>
