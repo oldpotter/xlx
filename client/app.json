@@ -1,53 +1,50 @@
 {
-  "pages": [
-    "pages/tab3/tab3",
-    "pages/tab4/tab4",
-    "pages/tab1/tab1",
-    "pages/search/search",
-    "pages/detail/detail",
-    "pages/test/test",
-    "pages/tab2/tab2",
-    "pages/article/article",
-    "pages/tab4/collectionlist",
-    "pages/article-list/article-list",
-    "pages/web-view/web-view",
-    "pages/tab4/options",
-    "pages/dk/dk",
-    "pages/share/share",
-    "pages/dk/morelist",
-    "pages/dk/setting-list"
-  ],
-  "window": {
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "学灵修",
-    "navigationStyle": "default",
-    "backgroundColor": "#FFFFFF",
-    "backgroundTextStyle": "light"
-  },
-  "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#9A259A",
-    "list": [
-      {
-        "pagePath": "pages/tab3/tab3",
-        "text": "首页",
-        "selectedIconPath": "./resources/other-on.png",
-        "iconPath": "./resources/other-off.png"
-      },
-      {
-        "pagePath": "pages/dk/dk",
-        "text": "打卡",
-        "selectedIconPath": "./resources/daka-on.png",
-        "iconPath": "./resources/daka-off.png"
-      },
-      {
-        "pagePath": "pages/tab4/tab4",
-        "text": "我的",
-        "selectedIconPath": "./resources/me-on.png",
-        "iconPath": "./resources/me-off.png"
-      }
-    ]
-  },
-	"requiredBackgroundModes":["audio"]
+	"pages": [
+		"pages/tab3/tab3",
+		"pages/tab4/tab4",
+		"pages/tab1/tab1",
+		"pages/search/search",
+		"pages/detail/detail",
+		"pages/test/test",
+		"pages/tab2/tab2",
+		"pages/article/article",
+		"pages/tab4/collectionlist",
+		"pages/article-list/article-list",
+		"pages/web-view/web-view",
+		"pages/tab4/options",
+		"pages/dk/dk",
+		"pages/share/share",
+		"pages/dk/morelist",
+		"pages/dk/setting-list"
+	],
+	"window": {
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "集录答疑",
+		"navigationStyle": "default",
+		"backgroundColor": "#FFFFFF",
+		"backgroundTextStyle": "light"
+	},
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#9A259A",
+		"list": [
+			{
+				"pagePath": "pages/tab3/tab3",
+				"text": "首页",
+				"selectedIconPath": "./resources/other-on.png",
+				"iconPath": "./resources/other-off.png"
+			},
+			{
+				"pagePath": "pages/tab4/tab4",
+				"text": "我的",
+				"selectedIconPath": "./resources/me-on.png",
+				"iconPath": "./resources/me-off.png"
+			}
+		]
+	},
+	"requiredBackgroundModes": [
+		"audio"
+	],
+	"sitemapLocation": "sitemap.json"
 }

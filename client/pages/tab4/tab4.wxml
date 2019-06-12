@@ -28,5 +28,6 @@
       <button class='contact-btn' open-type='contact'>a</button>
     </view>
   </view>
-  <!-- </view> -->
+  <view class="weui-cells__tips">合作伙伴:学灵修 http://www.xuelingxiu.com</view>
+	
 </view>

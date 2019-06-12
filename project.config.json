@@ -12,8 +12,10 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
-	"appid": "wx9e5e34b853bd71bb",
+	"appid": "wx1df1dd25c138e083",
 	"projectname": "xlx",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
