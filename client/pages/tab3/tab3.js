@@ -2,14 +2,14 @@ const config = require('../../config.js')
 Page({
 	data: {
 		// list: ['修行平台、公众号', '乱炖', '元吾氏答疑音频','元吾氏集录','元吾氏答疑']
-		list: ['相关平台、公众号', '元吾氏集录', '元吾氏答疑', '元吾氏答疑音频',]
+		list: ['相关下载及公众号', '元吾氏集录', '元吾氏答疑']
 	},
 
 	onTap(event) {
 		// console.log(event.currentTarget.dataset.text)
 		const text = event.currentTarget.dataset.text
 		// console.log(`index:${index}`)
-		if (text == '相关平台、公众号') {
+		if (text == '相关下载及公众号') {
 			const articleId = 'MrYr2u'
 			wx.navigateTo({//相关平台
 				url: `../article/article?articleId=${articleId}`,
